@@ -1,0 +1,9 @@
+object frmRelatorios: TfrmRelatorios
+  Left = 408
+  Height = 688
+  Top = 210
+  Width = 1175
+  Caption = 'frmRelatorios'
+  DesignTimePPI = 120
+  LCLVersion = '3.2.0.0'
+end

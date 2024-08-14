@@ -1,0 +1,141 @@
+object frmPesquisa: TfrmPesquisa
+  Left = 333
+  Height = 621
+  Top = 235
+  Width = 1500
+  Caption = 'frmPesquisa'
+  ClientHeight = 621
+  ClientWidth = 1500
+  DesignTimePPI = 120
+  LCLVersion = '3.2.0.0'
+  object PageControl1: TPageControl
+    Left = 0
+    Height = 413
+    Top = 208
+    Width = 1500
+    ActivePage = TabSheet1
+    TabIndex = 0
+    TabOrder = 0
+    object TabSheet1: TTabSheet
+      Caption = 'TabSheet1'
+      ClientHeight = 380
+      ClientWidth = 1492
+      object rgRelatorio: TRadioGroup
+        Left = 16
+        Height = 152
+        Top = 8
+        Width = 536
+        AutoFill = True
+        Caption = 'rgRelatorio'
+        ChildSizing.LeftRightSpacing = 6
+        ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+        ChildSizing.EnlargeVertical = crsHomogenousChildResize
+        ChildSizing.ShrinkHorizontal = crsScaleChilds
+        ChildSizing.ShrinkVertical = crsScaleChilds
+        ChildSizing.Layout = cclLeftToRightThenTopToBottom
+        ChildSizing.ControlsPerLine = 2
+        Columns = 2
+        TabOrder = 0
+      end
+      object DBGrid1: TDBGrid
+        Left = 0
+        Height = 389
+        Top = -9
+        Width = 1492
+        Align = alBottom
+        Color = clInactiveCaption
+        Columns = <>
+        DataSource = dsRelatorio
+        TabOrder = 1
+      end
+    end
+    object TabSheet2: TTabSheet
+      Caption = 'TabSheet2'
+    end
+  end
+  object GroupBox1: TGroupBox
+    Left = 16
+    Height = 200
+    Top = 8
+    Width = 1455
+    Caption = 'GroupBox1'
+    ClientHeight = 175
+    ClientWidth = 1451
+    TabOrder = 1
+    object Label1: TLabel
+      Left = 24
+      Height = 20
+      Top = 13
+      Width = 44
+      Caption = 'Label1'
+    end
+    object Edit1: TEdit
+      Left = 24
+      Height = 28
+      Top = 40
+      Width = 100
+      TabOrder = 0
+      Text = 'Edit1'
+    end
+    object Label2: TLabel
+      Left = 176
+      Height = 20
+      Top = 13
+      Width = 44
+      Caption = 'Label2'
+    end
+    object Edit2: TEdit
+      Left = 176
+      Height = 28
+      Top = 40
+      Width = 100
+      TabOrder = 1
+      Text = 'Edit2'
+    end
+    object Label3: TLabel
+      Left = 296
+      Height = 20
+      Top = 13
+      Width = 44
+      Caption = 'Label3'
+    end
+    object Edit3: TEdit
+      Left = 296
+      Height = 28
+      Top = 40
+      Width = 100
+      TabOrder = 2
+      Text = 'Edit3'
+    end
+    object Label4: TLabel
+      Left = 448
+      Height = 20
+      Top = 13
+      Width = 44
+      Caption = 'Label4'
+    end
+    object Edit4: TEdit
+      Left = 448
+      Height = 28
+      Top = 40
+      Width = 100
+      TabOrder = 3
+      Text = 'Edit4'
+    end
+  end
+  object qryRelatorio: TZQuery
+    Connection = dmConexao.dbConexao
+    Active = True
+    SQL.Strings = (
+      'select * from vw_relatorio_item'
+    )
+    Params = <>
+    Left = 1368
+    Top = 448
+  end
+  object dsRelatorio: TDataSource
+    DataSet = qryRelatorio
+    Left = 1368
+    Top = 528
+  end
+end

@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="12"/>
+    <BuildModes Active="Default"/>
+    <Units>
+      <Unit>
+        <Filename Value="Acervo.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="31" Y="19"/>
+        <UsageCount Value="203"/>
+      </Unit>
+      <Unit>
+        <Filename Value="untfrmprincipal.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmPrincipal"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="6"/>
+        <TopLine Value="69"/>
+        <CursorPos X="18" Y="69"/>
+        <UsageCount Value="203"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="untdmconexao.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="dmConexao"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="DataModule"/>
+        <UnitName Value="untdmConexao"/>
+        <CursorPos X="50" Y="34"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="untfrmusuario.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmUsuario"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="5"/>
+        <TopLine Value="183"/>
+        <CursorPos X="66" Y="207"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="untfrmlogin.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmLogin"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="2"/>
+        <TopLine Value="40"/>
+        <CursorPos X="21" Y="51"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="untfrmcadastro.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmCadastro"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="1"/>
+        <TopLine Value="408"/>
+        <CursorPos X="42" Y="421"/>
+        <ComponentState Value="1"/>
+        <UsageCount Value="200"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="untfrmrelatorios.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmRelatorios"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="16" Y="18"/>
+        <UsageCount Value="200"/>
+      </Unit>
+      <Unit>
+        <Filename Value="untfrmpesquisa.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmPesquisa"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="4"/>
+        <TopLine Value="15"/>
+        <CursorPos X="56" Y="18"/>
+        <UsageCount Value="198"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="untfrmlistadesejos.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="frmListaDesejos"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="3"/>
+        <TopLine Value="186"/>
+        <CursorPos X="39" Y="198"/>
+        <ComponentState Value="1"/>
+        <UsageCount Value="147"/>
+        <Loaded Value="True"/>
+        <LoadedDesigner Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo\src\component\ZStoredProcedure.pas"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="67"/>
+        <CursorPos X="7" Y="79"/>
+        <UsageCount Value="3"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="untfrmprincipal.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="3"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Acervo.lps"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <TopLine Value="49"/>
+        <UsageCount Value="3"/>
+        <DefaultSyntaxHighlighter Value="XML"/>
+      </Unit>
+      <Unit>
+        <Filename Value="Acervo.res"/>
+        <EditorIndex Value="-1"/>
+        <WindowIndex Value="-1"/>
+        <UsageCount Value="3"/>
+        <DefaultSyntaxHighlighter Value="None"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\include\control.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="3979"/>
+        <CursorPos Y="4009"/>
+        <UsageCount Value="7"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\dbctrls.pp"/>
+        <UnitName Value="DBCtrls"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1761"/>
+        <CursorPos X="13" Y="1335"/>
+        <UsageCount Value="3"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\Biblioteca\untfrmcrudleitor.pas"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="untfrmCRUDLeitor"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="80"/>
+        <CursorPos X="87" Y="79"/>
+        <UsageCount Value="3"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\Biblioteca\untcrudautor.pas"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="untCRUDAutor"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="64"/>
+        <UsageCount Value="7"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo\src\dbc\ZDbcPostgreSqlUtils.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="682"/>
+        <CursorPos Y="699"/>
+        <UsageCount Value="7"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\Biblioteca\untcrudlogin.pas"/>
+        <ComponentName Value="frmCRUDLogin"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="untCRUDLogin"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos X="42" Y="48"/>
+        <UsageCount Value="3"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\Biblioteca\untcrudusuario.pas"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <UnitName Value="untCRUDUsuario"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="43"/>
+        <CursorPos X="14" Y="80"/>
+        <UsageCount Value="0"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo\src\component\ZAbstractRODataset.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="4062"/>
+        <CursorPos Y="4073"/>
+        <UsageCount Value="8"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\..\..\AppData\Local\lazarus\onlinepackagemanager\packages\UserControl\source\UCBase.pas"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="881"/>
+        <CursorPos X="56" Y="840"/>
+        <UsageCount Value="4"/>
+        <DefaultSyntaxHighlighter Value="Delphi"/>
+      </Unit>
+      <Unit>
+        <Filename Value="..\Biblioteca\untcrudlivro.pas"/>
+        <UnitName Value="untCRUDLivro"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="159"/>
+        <CursorPos X="40" Y="179"/>
+        <UsageCount Value="0"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\include\customform.inc"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="1868"/>
+        <CursorPos Y="1879"/>
+        <UsageCount Value="2"/>
+      </Unit>
+      <Unit>
+        <Filename Value="untfrmpesquisa.lfm"/>
+        <EditorIndex Value="-1"/>
+        <UsageCount Value="3"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="untfrmlogin.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="995"/>
+        <CursorPos X="6" Y="1019"/>
+        <UsageCount Value="7"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="untdmconexao.lfm"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="28"/>
+        <UsageCount Value="6"/>
+        <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+    </Units>
+    <JumpHistory HistoryIndex="29">
+      <Position>
+        <Filename Value="untfrmpesquisa.pas"/>
+        <Caret Line="16" Column="77" TopLine="15"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmpesquisa.pas"/>
+        <Caret Line="17" Column="56" TopLine="15"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="251" Column="22" TopLine="244"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="250" Column="22" TopLine="243"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="249" Column="22" TopLine="242"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="248" Column="22" TopLine="241"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="247" Column="22" TopLine="240"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="246" Column="22" TopLine="239"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="245" Column="22" TopLine="238"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="244" Column="22" TopLine="237"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="251" Column="22" TopLine="244"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="250" Column="22" TopLine="243"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="251" Column="22" TopLine="244"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="252" Column="22" TopLine="245"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="251" Column="22" TopLine="244"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="250" Column="22" TopLine="243"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="249" Column="22" TopLine="242"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="248" Column="22" TopLine="241"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="247" Column="22" TopLine="240"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="246" Column="22" TopLine="239"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="245" Column="22" TopLine="238"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="244" Column="22" TopLine="237"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="252" Column="22" TopLine="245"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="251" Column="22" TopLine="244"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="252" Column="22" TopLine="245"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="253" Column="22" TopLine="246"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="252" Column="22" TopLine="245"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="416" Column="65" TopLine="405"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="421" Column="36" TopLine="411"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmcadastro.pas"/>
+        <Caret Line="443" Column="35" TopLine="427"/>
+      </Position>
+    </JumpHistory>
+    <RunParams>
+      <FormatVersion Value="2"/>
+      <Modes ActiveMode=""/>
+    </RunParams>
+  </ProjectSession>
+</CONFIG>

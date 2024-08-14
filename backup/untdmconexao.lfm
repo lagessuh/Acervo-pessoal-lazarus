@@ -1,0 +1,475 @@
+object dmConexao: TdmConexao
+  OnCreate = DataModuleCreate
+  OldCreateOrder = False
+  Height = 580
+  HorizontalOffset = 657
+  VerticalOffset = 238
+  Width = 688
+  PPI = 120
+  object dbConexao: TZConnection
+    ControlsCodePage = cCP_UTF8
+    AutoEncodeStrings = True
+    Properties.Strings = (
+      'AutoEncodeStrings=True'
+      'controls_cp=CP_UTF8'
+    )
+    Connected = True
+    HostName = 'localhost'
+    Port = 5432
+    Database = 'AcervoPessoal'
+    User = 'postgres'
+    Password = 'admin'
+    Protocol = 'postgresql-9'
+    Left = 56
+    Top = 56
+  end
+  object qryUsuario: TZQuery
+    Connection = dbConexao
+    UpdateObject = updQryUsuario
+    BeforePost = qryUsuarioBeforePost
+    Active = True
+    SQL.Strings = (
+      'select * from usuario order by nm_usuario'
+    )
+    Params = <>
+    Left = 144
+    Top = 56
+  end
+  object updQryUsuario: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM usuario'
+      'WHERE'
+      '  usuario.id_usuario = :OLD_id_usuario'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO usuario'
+      '  (id_usuario, nm_usuario, username, senha, ds_status)'
+      'VALUES'
+      '  (:id_usuario, :nm_usuario, :username, :senha, :ds_status)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE usuario SET'
+      '  id_usuario = :id_usuario,'
+      '  nm_usuario = :nm_usuario,'
+      '  username = :username,'
+      '  senha = :senha,'
+      '  ds_status = :ds_status'
+      'WHERE'
+      '  usuario.id_usuario = :OLD_id_usuario'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 256
+    Top = 56
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id_usuario'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nm_usuario'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'username'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'senha'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ds_status'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_id_usuario'
+        ParamType = ptUnknown
+      end>
+  end
+  object dsUsuario: TDataSource
+    DataSet = qryUsuario
+    Left = 360
+    Top = 56
+  end
+  object qryGenero: TZQuery
+    Connection = dbConexao
+    UpdateObject = updQryGenero
+    Active = True
+    SQL.Strings = (
+      'select * from genero order by ds_genero'
+    )
+    Params = <>
+    Left = 144
+    Top = 144
+  end
+  object updQryGenero: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM genero'
+      'WHERE'
+      '  genero.id_genero = :OLD_id_genero'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO genero'
+      '  (id_genero, ds_genero)'
+      'VALUES'
+      '  (:id_genero, :ds_genero)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE genero SET'
+      '  id_genero = :id_genero,'
+      '  ds_genero = :ds_genero'
+      'WHERE'
+      '  genero.id_genero = :OLD_id_genero'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 256
+    Top = 144
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id_genero'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ds_genero'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_id_genero'
+        ParamType = ptUnknown
+      end>
+  end
+  object dsGenero: TDataSource
+    DataSet = qryGenero
+    Left = 360
+    Top = 144
+  end
+  object qryCategoria: TZQuery
+    Connection = dbConexao
+    UpdateObject = updQryCategoria
+    Active = True
+    SQL.Strings = (
+      'select * from categoria order by ds_categoria'
+    )
+    Params = <>
+    Left = 144
+    Top = 232
+  end
+  object updQryCategoria: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM categoria'
+      'WHERE'
+      '  categoria.id_categoria = :OLD_id_categoria'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO categoria'
+      '  (id_categoria, ds_categoria)'
+      'VALUES'
+      '  (:id_categoria, :ds_categoria)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE categoria SET'
+      '  id_categoria = :id_categoria,'
+      '  ds_categoria = :ds_categoria'
+      'WHERE'
+      '  categoria.id_categoria = :OLD_id_categoria'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 256
+    Top = 232
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id_categoria'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ds_categoria'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_id_categoria'
+        ParamType = ptUnknown
+      end>
+  end
+  object dsCategoria: TDataSource
+    DataSet = qryCategoria
+    Left = 360
+    Top = 232
+  end
+  object qryItem: TZQuery
+    Connection = dbConexao
+    UpdateObject = updQryItem
+    Active = True
+    SQL.Strings = (
+      'select * from item order by nome'
+    )
+    Params = <>
+    Left = 144
+    Top = 312
+  end
+  object updQryItem: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM item'
+      'WHERE'
+      '  item.id_item = :OLD_id_item'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO item'
+      '  (id_item, nome, edicao, autor, tipo_acervo, dt_aquisicao, dt_cadastro, '
+      '   tipo_aquisicao, avaliacao, ano_lancamento, id_local_aquisicao, id_genero, '
+      '   id_usuario, id_categoria)'
+      'VALUES'
+      '  (:id_item, :nome, :edicao, :autor, :tipo_acervo, :dt_aquisicao, :dt_cadastro, '
+      '   :tipo_aquisicao, :avaliacao, :ano_lancamento, :id_local_aquisicao, :id_genero, '
+      '   :id_usuario, :id_categoria)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE item SET'
+      '  id_item = :id_item,'
+      '  nome = :nome,'
+      '  edicao = :edicao,'
+      '  autor = :autor,'
+      '  tipo_acervo = :tipo_acervo,'
+      '  dt_aquisicao = :dt_aquisicao,'
+      '  dt_cadastro = :dt_cadastro,'
+      '  tipo_aquisicao = :tipo_aquisicao,'
+      '  avaliacao = :avaliacao,'
+      '  ano_lancamento = :ano_lancamento,'
+      '  id_local_aquisicao = :id_local_aquisicao,'
+      '  id_genero = :id_genero,'
+      '  id_usuario = :id_usuario,'
+      '  id_categoria = :id_categoria'
+      'WHERE'
+      '  item.id_item = :OLD_id_item'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 256
+    Top = 312
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id_item'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nome'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'edicao'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'autor'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'tipo_acervo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'dt_aquisicao'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'dt_cadastro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'tipo_aquisicao'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'avaliacao'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ano_lancamento'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'id_local_aquisicao'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'id_genero'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'id_usuario'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'id_categoria'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_id_item'
+        ParamType = ptUnknown
+      end>
+  end
+  object dsItem: TDataSource
+    DataSet = qryItem
+    Left = 360
+    Top = 312
+  end
+  object qryLocal: TZQuery
+    Connection = dbConexao
+    UpdateObject = updQryLocal
+    Active = True
+    SQL.Strings = (
+      'select * from local_aquisicao order by ds_local_aquisicao'
+    )
+    Params = <>
+    Left = 144
+    Top = 392
+  end
+  object updQryLocal: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM local_aquisicao'
+      'WHERE'
+      '  local_aquisicao.id_local_aquisicao = :OLD_id_local_aquisicao'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO local_aquisicao'
+      '  (id_local_aquisicao, ds_local_aquisicao)'
+      'VALUES'
+      '  (:id_local_aquisicao, :ds_local_aquisicao)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE local_aquisicao SET'
+      '  id_local_aquisicao = :id_local_aquisicao,'
+      '  ds_local_aquisicao = :ds_local_aquisicao'
+      'WHERE'
+      '  local_aquisicao.id_local_aquisicao = :OLD_id_local_aquisicao'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 256
+    Top = 392
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id_local_aquisicao'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'ds_local_aquisicao'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_id_local_aquisicao'
+        ParamType = ptUnknown
+      end>
+  end
+  object dsLocal: TDataSource
+    DataSet = qryLocal
+    Left = 360
+    Top = 392
+  end
+  object qryLista: TZQuery
+    Connection = dbConexao
+    UpdateObject = updQryLista
+    Active = True
+    SQL.Strings = (
+      'select * from lista_desejo order by nm_desejo'
+    )
+    Params = <>
+    Left = 144
+    Top = 464
+  end
+  object updQryLista: TZUpdateSQL
+    DeleteSQL.Strings = (
+      'DELETE FROM lista_desejo'
+      'WHERE'
+      '  lista_desejo.id_desejo = :OLD_id_desejo'
+    )
+    InsertSQL.Strings = (
+      'INSERT INTO lista_desejo'
+      '  (id_desejo, nm_desejo, autor, dt_cadastro, atendido, id_genero)'
+      'VALUES'
+      '  (:id_desejo, :nm_desejo, :autor, :dt_cadastro, :atendido, :id_genero)'
+    )
+    ModifySQL.Strings = (
+      'UPDATE lista_desejo SET'
+      '  id_desejo = :id_desejo,'
+      '  nm_desejo = :nm_desejo,'
+      '  autor = :autor,'
+      '  dt_cadastro = :dt_cadastro,'
+      '  atendido = :atendido,'
+      '  id_genero = :id_genero'
+      'WHERE'
+      '  lista_desejo.id_desejo = :OLD_id_desejo'
+    )
+    UseSequenceFieldForRefreshSQL = False
+    Left = 256
+    Top = 464
+    ParamData = <    
+      item
+        DataType = ftUnknown
+        Name = 'id_desejo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'nm_desejo'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'autor'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'dt_cadastro'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'atendido'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'id_genero'
+        ParamType = ptUnknown
+      end    
+      item
+        DataType = ftUnknown
+        Name = 'OLD_id_desejo'
+        ParamType = ptUnknown
+      end>
+  end
+  object dsLista: TDataSource
+    DataSet = qryLista
+    Left = 360
+    Top = 464
+  end
+end
