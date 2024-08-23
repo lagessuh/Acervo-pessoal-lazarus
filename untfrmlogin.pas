@@ -48,7 +48,7 @@ implementation
 {$R *.lfm}
 
 uses
-untfrmprincipal; //,untdmConexao
+untfrmprincipal;
 
 { TfrmLogin }
 
@@ -76,56 +76,34 @@ begin
 end;
 
 procedure TfrmLogin.btnEntrarClick(Sender: TObject);
-  //var
-    //username, senha: string;
-//begin
- // username := edtUsername.Text;
- // senha := edtSenha.Text;
-
-
-  //Zquery1.SQL.Text := 'SELECT * FROM Usuario WHERE username = :username AND senha = :senha';
-  //Zquery1.Params.ParamByName('username').AsString := username;
-  //Zquery1.Params.ParamByName('senha').AsString := senha;
-
-
-  //Zquery1.Open;
-
- // + 'Usuário Logado' + dmConexao.UsuarioLogadoNome
-
-
- // if not Zquery1.IsEmpty then
- // begin
-
-  //  Close;
- // end
- // else
- // begin
-  //  ShowMessage('Usuário ou senha inválidos');
-  //end;
-
-//end;
 var
   username, senha: string;
 begin
   username := edtUsername.Text;
   senha := edtSenha.Text;
 
-  ZQuery1.SQL.Text := 'SELECT * FROM Usuario WHERE username = :username AND senha = :senha';
-  ZQuery1.Params.ParamByName('username').AsString := username;
-  ZQuery1.Params.ParamByName('senha').AsString := senha;
+  dmConexao.qryUsuario.SQL.Text := 'SELECT * FROM Usuario WHERE username = :username AND senha = :senha';
+  dmConexao.qryUsuario.Params.ParamByName('username').AsString := username;
+  dmConexao.qryUsuario.Params.ParamByName('senha').AsString := senha;
 
-  ZQuery1.Open;
+  dmConexao.qryUsuario.Open;
 
-  if not ZQuery1.IsEmpty then
+  //ZQuery1.SQL.Text := 'SELECT * FROM Usuario WHERE username = :username AND senha = :senha';
+  //ZQuery1.Params.ParamByName('username').AsString := username;
+  //ZQuery1.Params.ParamByName('senha').AsString := senha;
+  //
+  //ZQuery1.Open;
+
+  if not dmConexao.qryUsuario.IsEmpty then
   begin
     // Armazena o ID e o nome do usuário logado no data module
-    dmConexao.UsuarioLogadoID := ZQuery1.FieldByName('id_usuario').AsInteger;
-    dmConexao.UsuarioLogadoNome := ZQuery1.FieldByName('nm_usuario').AsString;
+    dmConexao.UsuarioLogadoID := dmConexao.qryUsuario.FieldByName('id_usuario').AsInteger;
+    dmConexao.UsuarioLogadoNome := dmConexao.qryUsuario.FieldByName('nm_usuario').AsString;
     //UsuarioLogadoID := ZQuery1.FieldByName('id_usuario').AsInteger;
     //UsuarioLogadoNome := ZQuery1.FieldByName('nm_usuario').AsString;
 
     // Fechar a consulta após processar os dados
-    ZQuery1.Close;
+    dmConexao.qryUsuario.Close;
 
     ShowMessage('Login bem-sucedido, ' + dmConexao.UsuarioLogadoNome);
     // Abre o formulário principal da aplicação
@@ -149,7 +127,7 @@ end;
 function TfrmLogin.ValidarLogin(const Username, Password: string): Boolean;
 begin
   Result := False;
-  with ZQuery1 do
+  with dmConexao.qryUsuario do
   begin
     Close;
     SQL.Text := 'SELECT id_usuario, nm_usuario FROM usuarios WHERE username = :username AND password = :password AND status = ''ativo''';

@@ -1,7 +1,7 @@
 object frmListaDesejos: TfrmListaDesejos
-  Left = 324
+  Left = 373
   Height = 850
-  Top = 79
+  Top = 69
   Width = 1500
   Caption = 'Lista de Desejos'
   ClientHeight = 850
@@ -562,62 +562,15 @@ object frmListaDesejos: TfrmListaDesejos
     Height = 782
     Top = 68
     Width = 1292
-    ActivePage = tabConsultaLista
+    ActivePage = tabCadastroLista
     ParentFont = False
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 2
     object tabConsultaLista: TTabSheet
       Caption = 'Consulta'
       ClientHeight = 749
       ClientWidth = 1284
       TabVisible = False
-      object DBGrid25: TDBGrid
-        Left = 0
-        Height = 323
-        Top = 426
-        Width = 1284
-        Align = alBottom
-        AlternateColor = clGradientInactiveCaption
-        AutoEdit = False
-        Color = clInactiveCaption
-        Columns = <        
-          item
-            Alignment = taCenter
-            Title.Alignment = taCenter
-            Title.Caption = '#'
-            Width = 50
-            FieldName = 'id_desejo'
-          end        
-          item
-            Title.Caption = 'Nome'
-            Width = 380
-            FieldName = 'nm_desejo'
-          end        
-          item
-            Title.Caption = 'Autor'
-            Width = 380
-            FieldName = 'autor'
-          end        
-          item
-            Title.Caption = 'Data de Cadastro'
-            FieldName = 'dt_cadastro'
-          end        
-          item
-            Title.Caption = 'Desejo Atendido?'
-            Width = 145
-            FieldName = 'atendido'
-          end        
-          item
-            Title.Caption = 'Gênero'
-            FieldName = 'id_genero'
-          end>
-        DataSource = dmConexao.dsLista
-        DoubleBuffered = True
-        Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgHeaderHotTracking]
-        ParentDoubleBuffered = False
-        ReadOnly = True
-        TabOrder = 0
-      end
       object GroupBox10: TPanel
         Left = 0
         Height = 424
@@ -628,7 +581,7 @@ object frmListaDesejos: TfrmListaDesejos
         Color = clInactiveCaption
         ParentBackground = False
         ParentColor = False
-        TabOrder = 1
+        TabOrder = 0
         object GroupBox2: TGroupBox
           Left = 24
           Height = 240
@@ -812,6 +765,53 @@ object frmListaDesejos: TfrmListaDesejos
             TabOrder = 2
           end
         end
+      end
+      object DBGrid25: TDBGrid
+        Left = 0
+        Height = 381
+        Top = 368
+        Width = 1284
+        Align = alBottom
+        AlternateColor = clGradientInactiveCaption
+        AutoEdit = False
+        Color = clInactiveCaption
+        Columns = <        
+          item
+            Alignment = taCenter
+            Title.Alignment = taCenter
+            Title.Caption = '#'
+            Width = 50
+            FieldName = 'id_desejo'
+          end        
+          item
+            Title.Caption = 'Nome'
+            Width = 380
+            FieldName = 'nm_desejo'
+          end        
+          item
+            Title.Caption = 'Autor'
+            Width = 380
+            FieldName = 'autor'
+          end        
+          item
+            Title.Caption = 'Data de Cadastro'
+            FieldName = 'dt_cadastro'
+          end        
+          item
+            Title.Caption = 'Desejo Atendido?'
+            Width = 145
+            FieldName = 'atendido'
+          end        
+          item
+            Title.Caption = 'Gênero'
+            FieldName = 'id_genero'
+          end>
+        DataSource = dmConexao.dsLista
+        DoubleBuffered = True
+        Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgHeaderHotTracking]
+        ParentDoubleBuffered = False
+        ReadOnly = True
+        TabOrder = 1
       end
     end
     object tabCadastroLista: TTabSheet
@@ -1912,6 +1912,7 @@ object frmListaDesejos: TfrmListaDesejos
             ButtonWidth = 29
             NumGlyphs = 1
             MaxLength = 10
+            OnChange = edtDataDesejosChange
             TabOrder = 2
             Text = '30/12/1899'
             DataField = 'dt_cadastro'

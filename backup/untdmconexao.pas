@@ -17,6 +17,7 @@ type
     dsItem: TDataSource;
     dsLocal: TDataSource;
     dsLista: TDataSource;
+    dsRelatorio: TDataSource;
     dsUsuario: TDataSource;
     dsGenero: TDataSource;
     dbConexao: TZConnection;
@@ -24,6 +25,7 @@ type
     qryItem: TZQuery;
     qryLocal: TZQuery;
     qryLista: TZQuery;
+    qryRelatorio: TZQuery;
     qryUsuario: TZQuery;
     qryGenero: TZQuery;
     updQryCategoria: TZUpdateSQL;
@@ -37,8 +39,8 @@ type
   private
 
   public
-    // UsuarioLogadoID: Integer;
-    //UsuarioLogadoNome: String;
+    UsuarioLogadoID: Integer;
+    UsuarioLogadoNome: String;
   end;
 
 var

@@ -2,8 +2,8 @@ object dmConexao: TdmConexao
   OnCreate = DataModuleCreate
   OldCreateOrder = False
   Height = 580
-  HorizontalOffset = 657
-  VerticalOffset = 238
+  HorizontalOffset = 699
+  VerticalOffset = 237
   Width = 688
   PPI = 120
   object dbConexao: TZConnection
@@ -32,8 +32,8 @@ object dmConexao: TdmConexao
       'select * from usuario order by nm_usuario'
     )
     Params = <>
-    Left = 144
-    Top = 56
+    Left = 160
+    Top = 16
   end
   object updQryUsuario: TZUpdateSQL
     DeleteSQL.Strings = (
@@ -58,8 +58,8 @@ object dmConexao: TdmConexao
       '  usuario.id_usuario = :OLD_id_usuario'
     )
     UseSequenceFieldForRefreshSQL = False
-    Left = 256
-    Top = 56
+    Left = 272
+    Top = 16
     ParamData = <    
       item
         DataType = ftUnknown
@@ -94,8 +94,8 @@ object dmConexao: TdmConexao
   end
   object dsUsuario: TDataSource
     DataSet = qryUsuario
-    Left = 360
-    Top = 56
+    Left = 376
+    Top = 16
   end
   object qryGenero: TZQuery
     Connection = dbConexao
@@ -105,8 +105,8 @@ object dmConexao: TdmConexao
       'select * from genero order by ds_genero'
     )
     Params = <>
-    Left = 144
-    Top = 144
+    Left = 160
+    Top = 104
   end
   object updQryGenero: TZUpdateSQL
     DeleteSQL.Strings = (
@@ -128,8 +128,8 @@ object dmConexao: TdmConexao
       '  genero.id_genero = :OLD_id_genero'
     )
     UseSequenceFieldForRefreshSQL = False
-    Left = 256
-    Top = 144
+    Left = 272
+    Top = 104
     ParamData = <    
       item
         DataType = ftUnknown
@@ -149,8 +149,8 @@ object dmConexao: TdmConexao
   end
   object dsGenero: TDataSource
     DataSet = qryGenero
-    Left = 360
-    Top = 144
+    Left = 376
+    Top = 104
   end
   object qryCategoria: TZQuery
     Connection = dbConexao
@@ -160,8 +160,8 @@ object dmConexao: TdmConexao
       'select * from categoria order by ds_categoria'
     )
     Params = <>
-    Left = 144
-    Top = 232
+    Left = 160
+    Top = 192
   end
   object updQryCategoria: TZUpdateSQL
     DeleteSQL.Strings = (
@@ -183,8 +183,8 @@ object dmConexao: TdmConexao
       '  categoria.id_categoria = :OLD_id_categoria'
     )
     UseSequenceFieldForRefreshSQL = False
-    Left = 256
-    Top = 232
+    Left = 272
+    Top = 192
     ParamData = <    
       item
         DataType = ftUnknown
@@ -204,8 +204,8 @@ object dmConexao: TdmConexao
   end
   object dsCategoria: TDataSource
     DataSet = qryCategoria
-    Left = 360
-    Top = 232
+    Left = 376
+    Top = 192
   end
   object qryItem: TZQuery
     Connection = dbConexao
@@ -215,8 +215,8 @@ object dmConexao: TdmConexao
       'select * from item order by nome'
     )
     Params = <>
-    Left = 144
-    Top = 312
+    Left = 160
+    Top = 272
   end
   object updQryItem: TZUpdateSQL
     DeleteSQL.Strings = (
@@ -254,8 +254,8 @@ object dmConexao: TdmConexao
       '  item.id_item = :OLD_id_item'
     )
     UseSequenceFieldForRefreshSQL = False
-    Left = 256
-    Top = 312
+    Left = 272
+    Top = 272
     ParamData = <    
       item
         DataType = ftUnknown
@@ -335,8 +335,8 @@ object dmConexao: TdmConexao
   end
   object dsItem: TDataSource
     DataSet = qryItem
-    Left = 360
-    Top = 312
+    Left = 376
+    Top = 272
   end
   object qryLocal: TZQuery
     Connection = dbConexao
@@ -346,8 +346,8 @@ object dmConexao: TdmConexao
       'select * from local_aquisicao order by ds_local_aquisicao'
     )
     Params = <>
-    Left = 144
-    Top = 392
+    Left = 160
+    Top = 352
   end
   object updQryLocal: TZUpdateSQL
     DeleteSQL.Strings = (
@@ -369,8 +369,8 @@ object dmConexao: TdmConexao
       '  local_aquisicao.id_local_aquisicao = :OLD_id_local_aquisicao'
     )
     UseSequenceFieldForRefreshSQL = False
-    Left = 256
-    Top = 392
+    Left = 272
+    Top = 352
     ParamData = <    
       item
         DataType = ftUnknown
@@ -390,8 +390,8 @@ object dmConexao: TdmConexao
   end
   object dsLocal: TDataSource
     DataSet = qryLocal
-    Left = 360
-    Top = 392
+    Left = 376
+    Top = 352
   end
   object qryLista: TZQuery
     Connection = dbConexao
@@ -401,8 +401,8 @@ object dmConexao: TdmConexao
       'select * from lista_desejo order by nm_desejo'
     )
     Params = <>
-    Left = 144
-    Top = 464
+    Left = 160
+    Top = 424
   end
   object updQryLista: TZUpdateSQL
     DeleteSQL.Strings = (
@@ -428,8 +428,8 @@ object dmConexao: TdmConexao
       '  lista_desejo.id_desejo = :OLD_id_desejo'
     )
     UseSequenceFieldForRefreshSQL = False
-    Left = 256
-    Top = 464
+    Left = 272
+    Top = 424
     ParamData = <    
       item
         DataType = ftUnknown
@@ -469,7 +469,31 @@ object dmConexao: TdmConexao
   end
   object dsLista: TDataSource
     DataSet = qryLista
-    Left = 360
-    Top = 464
+    Left = 376
+    Top = 424
+  end
+  object qryRelatorio: TZQuery
+    Connection = dbConexao
+    Active = True
+    SQL.Strings = (
+      'select * from vw_relatorio_item'
+    )
+    Params = <>
+    Left = 160
+    Top = 504
+  end
+  object dsRelatorio: TDataSource
+    DataSet = qryRelatorio
+    Left = 376
+    Top = 504
+  end
+  object qryContagem: TZQuery
+    Connection = dbConexao
+    SQL.Strings = (
+      ''
+    )
+    Params = <>
+    Left = 608
+    Top = 112
   end
 end

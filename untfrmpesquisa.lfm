@@ -1,22 +1,22 @@
 object frmPesquisa: TfrmPesquisa
-  Left = 68
+  Left = 319
   Height = 748
-  Top = 116
-  Width = 1713
-  Caption = 'frmPesquisa'
-  ClientHeight = 748
-  ClientWidth = 1713
+  Top = 177
+  Width = 1561
+  Caption = '..::: Relatório :::..'
+  ClientHeight = 0
+  ClientWidth = 0
   Color = clInactiveCaption
   DesignTimePPI = 120
   LCLVersion = '3.2.0.0'
   object GroupBox1: TGroupBox
-    Left = 16
-    Height = 192
-    Top = 8
-    Width = 1455
+    Left = 64
+    Height = 184
+    Top = 32
+    Width = 1432
     Caption = 'Relatórios'
-    ClientHeight = 167
-    ClientWidth = 1451
+    ClientHeight = 159
+    ClientWidth = 1428
     ParentBackground = False
     TabOrder = 0
     object Label1: TLabel
@@ -26,7 +26,7 @@ object frmPesquisa: TfrmPesquisa
       Width = 100
       Caption = 'Nome do Item:'
     end
-    object Edit1: TEdit
+    object edtPesqItem: TEdit
       Left = 40
       Height = 28
       Top = 35
@@ -40,7 +40,7 @@ object frmPesquisa: TfrmPesquisa
       Width = 40
       Caption = 'Autor:'
     end
-    object Edit2: TEdit
+    object edtPesqAutor: TEdit
       Left = 40
       Height = 28
       Top = 110
@@ -54,7 +54,7 @@ object frmPesquisa: TfrmPesquisa
       Width = 53
       Caption = 'Usuario:'
     end
-    object Edit3: TEdit
+    object edtPesqUsuario: TEdit
       Left = 312
       Height = 28
       Top = 35
@@ -68,54 +68,17 @@ object frmPesquisa: TfrmPesquisa
       Width = 68
       Caption = 'Categoria:'
     end
-    object Edit4: TEdit
+    object edtPesqCategoria: TEdit
       Left = 312
       Height = 28
       Top = 110
       Width = 256
       TabOrder = 3
     end
-    object RadioGroup1: TRadioGroup
-      Left = 864
-      Height = 131
-      Top = 8
-      Width = 231
-      AutoFill = True
-      Caption = 'Físico ou Digital?'
-      ChildSizing.LeftRightSpacing = 6
-      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
-      ChildSizing.EnlargeVertical = crsHomogenousChildResize
-      ChildSizing.ShrinkHorizontal = crsScaleChilds
-      ChildSizing.ShrinkVertical = crsScaleChilds
-      ChildSizing.Layout = cclLeftToRightThenTopToBottom
-      ChildSizing.ControlsPerLine = 1
-      ClientHeight = 106
-      ClientWidth = 227
-      Items.Strings = (
-        'Digital'
-        'Físico'
-      )
-      ParentBackground = False
-      TabOrder = 4
-    end
-    object Label5: TLabel
-      Left = 584
-      Height = 20
-      Top = 8
-      Width = 53
-      Caption = 'Usuario:'
-    end
-    object Edit5: TEdit
-      Left = 584
-      Height = 28
-      Top = 35
-      Width = 256
-      TabOrder = 5
-    end
     object btnPesquisarLista: TBitBtn
-      Left = 1208
+      Left = 1192
       Height = 48
-      Top = 56
+      Top = 96
       Width = 110
       Caption = 'Pesquisar'
       Glyph.Data = {
@@ -251,14 +214,55 @@ object frmPesquisa: TfrmPesquisa
         0490B366000AFFFFFF00FFFFFF00FFFFFF00FFFFFF00FFFFFF00
       }
       Margin = 4
+      OnClick = btnPesquisarListaClick
+      TabOrder = 4
+    end
+    object Label6: TLabel
+      Left = 584
+      Height = 20
+      Top = 13
+      Width = 51
+      Caption = 'Gênero:'
+    end
+    object edtPesqGenero: TEdit
+      Left = 584
+      Height = 28
+      Top = 35
+      Width = 256
+      TabOrder = 5
+    end
+    object rgTipoAcervo: TDBRadioGroup
+      Left = 856
+      Height = 131
+      Top = 13
+      Width = 231
+      AutoFill = True
+      Caption = 'Físico ou Digital?'
+      ChildSizing.LeftRightSpacing = 6
+      ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+      ChildSizing.EnlargeVertical = crsHomogenousChildResize
+      ChildSizing.ShrinkHorizontal = crsScaleChilds
+      ChildSizing.ShrinkVertical = crsScaleChilds
+      ChildSizing.Layout = cclLeftToRightThenTopToBottom
+      ChildSizing.ControlsPerLine = 1
+      DataField = 'Físico(F) ou Digital(D)?'
+      DataSource = dmConexao.dsRelatorio
+      Items.Strings = (
+        'Digital'
+        'Físico'
+      )
       TabOrder = 6
+      Values.Strings = (
+        'D'
+        'F'
+      )
     end
   end
   object DBGrid1: TDBGrid
     Left = 0
     Height = 397
     Top = 351
-    Width = 1713
+    Width = 1561
     Align = alBottom
     Color = clInactiveCaption
     Columns = <    
@@ -355,22 +359,31 @@ object frmPesquisa: TfrmPesquisa
         Width = 100
         FieldName = 'Data de Cadastro'
       end>
-    DataSource = dsRelatorio
+    DataSource = dmConexao.dsRelatorio
+    ReadOnly = True
     TabOrder = 1
   end
-  object qryRelatorio: TZQuery
-    Connection = dmConexao.dbConexao
-    Active = True
-    SQL.Strings = (
-      'select * from vw_relatorio_item'
+  object rgTipoAcervo1: TRadioGroup
+    Left = 288
+    Height = 126
+    Top = 216
+    Width = 239
+    AutoFill = True
+    Caption = 'Físico ou Digital?'
+    ChildSizing.LeftRightSpacing = 6
+    ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+    ChildSizing.EnlargeVertical = crsHomogenousChildResize
+    ChildSizing.ShrinkHorizontal = crsScaleChilds
+    ChildSizing.ShrinkVertical = crsScaleChilds
+    ChildSizing.Layout = cclLeftToRightThenTopToBottom
+    ChildSizing.ControlsPerLine = 1
+    ClientHeight = 101
+    ClientWidth = 235
+    Items.Strings = (
+      'Digital'
+      'Físico'
     )
-    Params = <>
-    Left = 1368
-    Top = 448
-  end
-  object dsRelatorio: TDataSource
-    DataSet = qryRelatorio
-    Left = 1368
-    Top = 528
+    ParentBackground = False
+    TabOrder = 2
   end
 end

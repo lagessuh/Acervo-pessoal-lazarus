@@ -1,11 +1,11 @@
 object frmListaDesejos: TfrmListaDesejos
-  Left = 293
+  Left = 373
   Height = 850
-  Top = 74
+  Top = 69
   Width = 1500
   Caption = 'Lista de Desejos'
-  ClientHeight = 0
-  ClientWidth = 0
+  ClientHeight = 850
+  ClientWidth = 1500
   DesignTimePPI = 120
   OnCreate = FormCreate
   LCLVersion = '3.2.0.0'
@@ -562,9 +562,9 @@ object frmListaDesejos: TfrmListaDesejos
     Height = 782
     Top = 68
     Width = 1292
-    ActivePage = tabConsultaLista
+    ActivePage = tabCadastroLista
     ParentFont = False
-    TabIndex = 0
+    TabIndex = 1
     TabOrder = 2
     object tabConsultaLista: TTabSheet
       Caption = 'Consulta'
@@ -1912,6 +1912,7 @@ object frmListaDesejos: TfrmListaDesejos
             ButtonWidth = 29
             NumGlyphs = 1
             MaxLength = 10
+            OnChange = edtDataDesejosChange
             TabOrder = 2
             Text = '30/12/1899'
             DataField = 'dt_cadastro'

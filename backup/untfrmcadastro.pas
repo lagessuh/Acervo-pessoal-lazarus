@@ -15,38 +15,38 @@ type
   { TfrmCadastro }
 
   TfrmCadastro = class(TForm)
+    btnAtualizarItem: TBitBtn;
     btnAtualizarLocal: TBitBtn;
     btnAtualizarGenero: TBitBtn;
     btnAtualizarCategoria: TBitBtn;
-    btnAtualizarItem: TBitBtn;
     btnCadastroGenero: TBitBtn;
     btnCadastroCategoria2: TBitBtn;
     btnCadastroItem: TBitBtn;
     btnCadastroLocal: TBitBtn;
+    btnCancelarItem: TBitBtn;
     btnCancelarLocal: TBitBtn;
     btnCancelarGenero: TBitBtn;
     btnCancelarCategoria: TBitBtn;
-    btnCancelarItem: TBitBtn;
     btnConsultaGenero: TBitBtn;
     btnConsultaCategoria2: TBitBtn;
     btnConsultaItem: TBitBtn;
     btnConsultaLocal: TBitBtn;
+    btnEditItem: TBitBtn;
     btnEditLocal: TBitBtn;
     btnEditGenero: TBitBtn;
     btnEditCategoria: TBitBtn;
-    btnEditItem: TBitBtn;
+    btnExcluirItem: TBitBtn;
     btnExcluirLocal: TBitBtn;
     btnExcluirGenero: TBitBtn;
     btnExcluirCategoria: TBitBtn;
-    btnExcluirItem: TBitBtn;
+    btnLimparItem: TBitBtn;
     btnLimparLocal: TBitBtn;
     btnLimparGenero: TBitBtn;
     btnLimparCategoria: TBitBtn;
-    btnLimparItem: TBitBtn;
+    btnNovoItem: TBitBtn;
     btnNovoLocal: TBitBtn;
     btnNovoGenero: TBitBtn;
     btnNovoCategoria: TBitBtn;
-    btnNovoItem: TBitBtn;
     btnPesquisarCategoria: TBitBtn;
     btnPesquisarItem: TBitBtn;
     btnPesquisarLocal: TBitBtn;
@@ -55,19 +55,21 @@ type
     btnAquisicao: TBitBtn;
     btnItem: TBitBtn;
     btnPesquisarGenero: TBitBtn;
+    btnSalvarItem: TBitBtn;
     btnSalvarLocal: TBitBtn;
     btnSalvarGenero: TBitBtn;
     btnSalvarCategoria: TBitBtn;
-    btnSalvarItem: TBitBtn;
-    cbTipoAcervoItemCad: TDBComboBox;
     cbAvaliacaoItemCad: TDBComboBox;
     Consulta: TGroupBox;
     DBGrid17: TDBGrid;
+    DBGrid19: TDBGrid;
     DBGrid20: TDBGrid;
     DBGrid22: TDBGrid;
     DBGrid23: TDBGrid;
     DBGrid24: TDBGrid;
-    dbTipoAquisicaoItemCad: TDBComboBox;
+    Label26: TLabel;
+    Panel6: TPanel;
+    rgTipoAcervoItem: TDBRadioGroup;
     edtLancamentoItemCad: TDBDateEdit;
     edtAquisicaoItemCad: TDBDateEdit;
     edtdataItemCad: TDBDateEdit;
@@ -83,7 +85,6 @@ type
     DBGrid21: TDBGrid;
     edtIdCategoria: TDBEdit;
     edtCategoriaCad: TDBEdit;
-    DBGrid19: TDBGrid;
     edtGeneroCad: TDBEdit;
     edtIdGeneroCad: TDBEdit;
     DBGrid18: TDBGrid;
@@ -121,8 +122,6 @@ type
     Label3: TLabel;
     Label30: TLabel;
     Label31: TLabel;
-    Label32: TLabel;
-    Label33: TLabel;
     Label34: TLabel;
     Label35: TLabel;
     Label36: TLabel;
@@ -132,7 +131,6 @@ type
     Panel10: TPanel;
     Panel4: TPanel;
     Panel5: TPanel;
-    Panel6: TPanel;
     PanelConsultaGenero: TPanel;
     GroupBox11: TPanel;
     GroupBox2: TGroupBox;
@@ -158,6 +156,7 @@ type
     pgcCadastro: TPageControl;
     Panel1: TPanel;
     pgcAcoesItem: TPageControl;
+    rgTipoAquisicao: TDBRadioGroup;
     tabCadastroGenero: TTabSheet;
     tabCadastroCategoria: TTabSheet;
     tabCadastroLocal: TTabSheet;
@@ -214,6 +213,7 @@ type
     procedure btnSalvarGeneroClick(Sender: TObject);
     procedure btnSalvarItemClick(Sender: TObject);
     procedure btnSalvarLocalClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
     procedure RxDice1Change(Sender: TObject);
   private
     function CamposPreenchidosGenero: Boolean;
@@ -270,8 +270,6 @@ begin
     cbGeneroItemCad.Clear;
     cbCategoriaItemCad.Clear;
     dbLocalItemCad.Clear;
-    dbTipoAquisicaoItemCad.Clear;
-    cbTipoAcervoItemCad.Clear;
     cbAvaliacaoItemCad.Clear;
     edtLancamentoItemCad.Clear;
     edtAquisicaoItemCad.Clear;
@@ -294,12 +292,26 @@ end;
 //novo gênero
 procedure TfrmCadastro.btnNovoGeneroClick(Sender: TObject);
 begin
+  // desativar botões
+  btnNovoGenero.Enabled := True;  // Desativa o botão Novo
+  btnEditGenero.Enabled := False; // Desativa o botão Editar
+  btnExcluirGenero.Enabled := False; // Desativa o botão Excluir
+  btnSalvarGenero.Enabled := True; // Ativa o botão Salvar
+  btnCancelarGenero.Enabled := True; // Ativa o botão Cancelar
+  //inserir itens
   dmConexao.dsGenero.DataSet.Insert;
   edtGeneroCad.SetFocus;
 end;
 //novo item
 procedure TfrmCadastro.btnNovoItemClick(Sender: TObject);
 begin
+  // desativar botões
+  btnNovoItem.Enabled := True;  // Desativa o botão Novo
+  btnEditItem.Enabled := False; // Desativa o botão Editar
+  btnExcluirItem.Enabled := False; // Desativa o botão Excluir
+  btnSalvarItem.Enabled := True; // Ativa o botão Salvar
+  btnCancelarItem.Enabled := True; // Ativa o botão Cancelar
+  //inserir itens
  dmConexao.dsItem.DataSet.Insert;
  edtNomeItemCad.SetFocus;
  edtAutorItemCad.SetFocus;
@@ -307,21 +319,29 @@ begin
  cbGeneroItemCad.SetFocus;
  cbCategoriaItemCad.SetFocus;
  dbLocalItemCad.SetFocus;
- dbTipoAquisicaoItemCad.SetFocus;
- cbTipoAcervoItemCad.SetFocus;
+ rgTipoAquisicao.SetFocus;
+ rgTipoAcervoItem.SetFocus;
  cbAvaliacaoItemCad.SetFocus;
  edtLancamentoItemCad.SetFocus;
  edtAquisicaoItemCad.SetFocus;
  edtdataItemCad.SetFocus;
+
 end;
 
 //novo Local
 procedure TfrmCadastro.btnNovoLocalClick(Sender: TObject);
 begin
+ // desativar botões
+  btnNovoLocal.Enabled := True;  // Desativa o botão Novo
+  btnEditLocal.Enabled := False; // Desativa o botão Editar
+  btnExcluirLocal.Enabled := False; // Desativa o botão Excluir
+  btnSalvarLocal.Enabled := True; // Ativa o botão Salvar
+  btnCancelarLocal.Enabled := True; // Ativa o botão Cancelar
+  //inserir itens
  dmConexao.dsLocal.DataSet.Insert;
  edtLocalCad.SetFocus;
 end;
-
+//pesquisa categoria
 procedure TfrmCadastro.btnPesquisarCategoriaClick(Sender: TObject);
 begin
    dmConexao.qryCategoria.Close;
@@ -337,7 +357,7 @@ begin
 
   dmConexao.qryCategoria.Open;
 end;
-
+//pesquisa genero
 procedure TfrmCadastro.btnPesquisarGeneroClick(Sender: TObject);
 begin
    dmConexao.qryGenero.Close;
@@ -353,7 +373,7 @@ begin
 
   dmConexao.qryGenero.Open;
 end;
-
+ //pesquisa item
 procedure TfrmCadastro.btnPesquisarItemClick(Sender: TObject);
 begin
      dmConexao.qryItem.Close;
@@ -375,7 +395,7 @@ begin
 
    dmConexao.qryItem.Open;
 end;
-
+//pesquisa local
 procedure TfrmCadastro.btnPesquisarLocalClick(Sender: TObject);
 begin
    dmConexao.qryLocal.Close;
@@ -391,82 +411,160 @@ begin
 
   dmConexao.qryLocal.Open;
 end;
-//salvar categoria
-procedure TfrmCadastro.btnSalvarCategoriaClick(Sender: TObject);
+////salvar Gênero
+procedure TfrmCadastro.btnSalvarGeneroClick(Sender: TObject);
 begin
+  // Lógica para salvar item
+  btnNovoGenero.Enabled := True;  // Ativa o botão Novo
+  btnEditGenero.Enabled := True; // Ativa o botão Editar
+  btnExcluirGenero.Enabled := True; // Ativa o botão Excluir
+  btnSalvarGenero.Enabled := False; // Desativa o botão Salvar
+  btnCancelarGenero.Enabled := False; // Desativa o botão Cancelar
+  // Verifica se todos os campos obrigatórios estão preenchidos
+  if not CamposPreenchidosGenero then
+    Exit;
+
+  // Verifica se o dataset está em modo de edição ou inserção
+  if dmConexao.dsGenero.DataSet.State in [dsEdit, dsInsert] then
   begin
-    if not CamposPreenchidosCategoria then
-      Exit;
-  begin
-    dmConexao.dsCategoria.DataSet.Post;
+    // Se estiver em modo de edição, solicita confirmação antes de salvar
+    if dmConexao.dsGenero.DataSet.State = dsEdit then
     begin
-    ShowMessage('Registro incluído com sucesso!');
-    end;
+      if MessageDlg('Tem certeza que deseja salvar as alterações?', mtConfirmation,
+        [mbYes, mbNo], 0) = mrYes then
+      begin
+        dmConexao.dsGenero.DataSet.Post; // Salva apenas se o usuário clicar em "Sim"
+      end
+      else
+      begin
+        dmConexao.dsGenero.DataSet.Cancel; // Cancela as alterações se o usuário clicar em "Não"
+      end;
+    end
+    // Se estiver em modo de inserção, salva diretamente sem pedir confirmação
+    else if dmConexao.dsGenero.DataSet.State = dsInsert then
+    begin
+      dmConexao.dsGenero.DataSet.Post;
     end;
   end;
 end;
-//salvar Gênero
-procedure TfrmCadastro.btnSalvarGeneroClick(Sender: TObject);
-begin
-  begin
-    if not CamposPreenchidosGenero then
-      Exit;
 
+procedure TfrmCadastro.btnSalvarCategoriaClick(Sender: TObject);
+begin
+  // Lógica para salvar item
+  btnNovoCategoria.Enabled := True;  // Ativa o botão Novo
+  btnEditCategoria.Enabled := True; // Ativa o botão Editar
+  btnExcluirCategoria.Enabled := True; // Ativa o botão Excluir
+  btnSalvarCategoria.Enabled := False; // Desativa o botão Salvar
+  btnCancelarCategoria.Enabled := False; // Desativa o botão Cancelar
+  // Verifica se todos os campos obrigatórios estão preenchidos
+  if not CamposPreenchidosCategoria then
+    Exit;
+
+  // Verifica se o dataset está em modo de edição ou inserção
+  if dmConexao.dsCategoria.DataSet.State in [dsEdit, dsInsert] then
   begin
-  if dmConexao.dsGenero.DataSet.State in [dsEdit, dsInsert] then
-  begin
-  if MessageDlg('Tem certeza que deseja salvar as alterações?', mtConfirmation,
-  [mbYes, mbNo], 0) = mrYes then //tentar colocar em português. está ficando como yes ou no.
-  begin
-    dmConexao.dsGenero.DataSet.Post;
-    else dmConexao.dsCategoria.DataSet.Cancel;
-  end;
-  end;
-  end;
+    // Se estiver em modo de edição, solicita confirmação antes de salvar
+    if dmConexao.dsCategoria.DataSet.State = dsEdit then
+    begin
+      if MessageDlg('Tem certeza que deseja salvar as alterações?', mtConfirmation,
+        [mbYes, mbNo], 0) = mrYes then
+      begin
+        dmConexao.dsCategoria.DataSet.Post; // Salva apenas se o usuário clicar em "Sim"
+      end
+      else
+      begin
+        dmConexao.dsCategoria.DataSet.Cancel; // Cancela as alterações se o usuário clicar em "Não"
+      end;
+    end
+    // Se estiver em modo de inserção, salva diretamente sem pedir confirmação
+    else if dmConexao.dsCategoria.DataSet.State = dsInsert then
+    begin
+      dmConexao.dsCategoria.DataSet.Post;
+    end;
   end;
 end;
 //salvar item
 procedure TfrmCadastro.btnSalvarItemClick(Sender: TObject);
 begin
-  begin
-    if not CamposPreenchidosItem then
-      Exit;
-       // Adiciona o ID do usuário logado antes de salvar
-  //dmConexao.dsItem.DataSet.FieldByName('id_usuario').AsInteger := dmConexao.UsuarioLogadoID3;
+  // Lógica para salvar item
+  btnNovoItem.Enabled := True;  // Ativa o botão Novo
+  btnEditItem.Enabled := True; // Ativa o botão Editar
+  btnExcluirItem.Enabled := True; // Ativa o botão Excluir
+  btnSalvarItem.Enabled := False; // Desativa o botão Salvar
+  btnCancelarItem.Enabled := False; // Desativa o botão Cancelar
+  // Verifica se todos os campos obrigatórios estão preenchidos
+  if not CamposPreenchidosItem then
+    Exit;
+
+  // Adiciona o ID do usuário logado antes de salvar
   dmConexao.dsItem.DataSet.FieldByName('id_usuario').AsInteger := dmConexao.UsuarioLogadoID;
-  begin
+
+  // Verifica se o dataset está em modo de edição ou inserção
   if dmConexao.dsItem.DataSet.State in [dsEdit, dsInsert] then
   begin
-  if MessageDlg('Tem certeza que deseja salvar as alterações?', mtConfirmation,
-  [mbYes, mbNo], 0) = mrYes then //tentar colocar em português. está ficando como yes ou no.
-  begin
-    dmConexao.dsItem.DataSet.Post;
-  end;
-  end;
-  end;
+    // Se estiver em modo de edição, solicita confirmação antes de salvar
+    if dmConexao.dsItem.DataSet.State = dsEdit then
+    begin
+      if MessageDlg('Tem certeza que deseja salvar as alterações?', mtConfirmation,
+        [mbYes, mbNo], 0) = mrYes then
+      begin
+        dmConexao.dsItem.DataSet.Post; // Salva apenas se o usuário clicar em "Sim"
+      end
+      else
+      begin
+        dmConexao.dsItem.DataSet.Cancel; // Cancela as alterações se o usuário clicar em "Não"
+      end;
+    end
+    // Se estiver em modo de inserção, salva diretamente sem pedir confirmação
+    else if dmConexao.dsItem.DataSet.State = dsInsert then
+    begin
+      dmConexao.dsItem.DataSet.Post;
+    end;
   end;
 end;
-
 //salvar local
 procedure TfrmCadastro.btnSalvarLocalClick(Sender: TObject);
 begin
-  begin
-  begin
-    if not CamposPreenchidosLocal then
-      Exit;
-  begin
+  // Lógica para salvar item
+    btnNovoLocal.Enabled := True;  // Ativa o botão Novo
+    btnEditLocal.Enabled := True; // Ativa o botão Editar
+    btnExcluirLocal.Enabled := True; // Ativa o botão Excluir
+    btnSalvarLocal.Enabled := False; // Desativa o botão Salvar
+    btnCancelarLocal.Enabled := False; // Desativa o botão Cancelar
+    // Verifica se todos os campos obrigatórios estão preenchidos
+  if not CamposPreenchidosLocal then
+    Exit;
+
+  // Verifica se o dataset está em modo de edição ou inserção
   if dmConexao.dsLocal.DataSet.State in [dsEdit, dsInsert] then
   begin
-  if MessageDlg('Tem certeza que deseja salvar as alterações?', mtConfirmation,
-  [mbYes, mbNo], 0) = mrYes then //tentar colocar em português. está ficando como yes ou no.
-  begin
-    dmConexao.dsLocal.DataSet.Post;
-  end;
-  end;
-  end;
-  end;
+    // Se estiver em modo de edição, solicita confirmação antes de salvar
+    if dmConexao.dsLocal.DataSet.State = dsEdit then
+    begin
+      if MessageDlg('Tem certeza que deseja salvar as alterações?', mtConfirmation,
+        [mbYes, mbNo], 0) = mrYes then
+      begin
+        dmConexao.dsLocal.DataSet.Post; // Salva apenas se o usuário clicar em "Sim"
+      end
+      else
+      begin
+        dmConexao.dsLocal.DataSet.Cancel; // Cancela as alterações se o usuário clicar em "Não"
+      end;
+    end
+    // Se estiver em modo de inserção, salva diretamente sem pedir confirmação
+    else if dmConexao.dsLocal.DataSet.State = dsInsert then
+    begin
+      dmConexao.dsLocal.DataSet.Post;
+    end;
   end;
 end;
+procedure TfrmCadastro.FormCreate(Sender: TObject);
+begin
+  edtLancamentoItemCad.Date := Date;
+  edtdataItemCad.Date := Date;
+  edtAquisicaoItemCad.Date := Date;
+end;
+
 procedure TfrmCadastro.btnCategoriaClick(Sender: TObject);
 begin
   pgcCadastro.TabIndex := 1;
@@ -494,24 +592,48 @@ end;
 //editar Categoria
 procedure TfrmCadastro.btnEditCategoriaClick(Sender: TObject);
 begin
+  // desativar botões
+  btnNovoCategoria.Enabled := False;  // Desativa o botão Novo
+  btnEditCategoria.Enabled := False; // Desativa o botão Editar
+  btnExcluirCategoria.Enabled := False; // Desativa o botão Excluir
+  btnSalvarCategoria.Enabled := True; // Ativa o botão Salvar
+  btnCancelarCategoria.Enabled := True; // Ativa o botão Cancelar
+   begin
   if not (dmConexao.dsCategoria.DataSet.State in [dsEdit, dsInsert]) then
   begin
     dmConexao.dsCategoria.DataSet.Edit;
     edtCategoriaCad.SetFocus;
   end;
 end;
+end;
 //editar gênero
 procedure TfrmCadastro.btnEditGeneroClick(Sender: TObject);
 begin
+  begin
+  // desativar botões
+  btnNovoGenero.Enabled := False;  // Desativa o botão Novo
+  btnEditGenero.Enabled := False; // Desativa o botão Editar
+  btnExcluirGenero.Enabled := False; // Desativa o botão Excluir
+  btnSalvarGenero.Enabled := True; // Ativa o botão Salvar
+  btnCancelarGenero.Enabled := True; // Ativa o botão Cancelar
+   begin
   if not (dmConexao.dsGenero.DataSet.State in [dsEdit, dsInsert]) then
   begin
     dmConexao.dsGenero.DataSet.Edit;
     edtGeneroCad.SetFocus;
   end;
 end;
+  end;
+end;
 //editar item
 procedure TfrmCadastro.btnEditItemClick(Sender: TObject);
 begin
+   // desativar botões
+  btnNovoItem.Enabled := False;  // Desativa o botão Novo
+  btnEditItem.Enabled := False; // Desativa o botão Editar
+  btnExcluirItem.Enabled := False; // Desativa o botão Excluir
+  btnSalvarItem.Enabled := True; // Ativa o botão Salvar
+  btnCancelarItem.Enabled := True; // Ativa o botão Cancelar
    begin
   if not (dmConexao.dsItem.DataSet.State in [dsEdit, dsInsert]) then
   begin
@@ -522,8 +644,8 @@ begin
     cbGeneroItemCad.SetFocus;
     cbCategoriaItemCad.SetFocus;
     dbLocalItemCad.SetFocus;
-    dbTipoAquisicaoItemCad.SetFocus;
-    cbTipoAcervoItemCad.SetFocus;
+    rgTipoAquisicao.SetFocus;
+    rgTipoAcervoItem.SetFocus;
     cbAvaliacaoItemCad.SetFocus;
     edtLancamentoItemCad.SetFocus;
     edtAquisicaoItemCad.SetFocus;
@@ -534,18 +656,32 @@ end;
 //editar local
 procedure TfrmCadastro.btnEditLocalClick(Sender: TObject);
 begin
+  // desativar botões
+  btnNovoLocal.Enabled := False;  // Desativa o botão Novo
+  btnEditLocal.Enabled := False; // Desativa o botão Editar
+  btnExcluirLocal.Enabled := False; // Desativa o botão Excluir
+  btnSalvarLocal.Enabled := True; // Ativa o botão Salvar
+  btnCancelarLocal.Enabled := True; // Ativa o botão Cancelar
+   begin
   if not (dmConexao.dsLocal.DataSet.State in [dsEdit, dsInsert]) then
   begin
     dmConexao.dsLocal.DataSet.Edit;
     edtLocalCad.SetFocus;
   end;
 end;
+end;
 // excluir categoria
 procedure TfrmCadastro.btnExcluirCategoriaClick(Sender: TObject);
 begin
+  // Lógica para excluir item
+  btnNovoCategoria.Enabled := True;  // Ativa o botão Novo
+  btnEditCategoria.Enabled := True; // Ativa o botão Editar
+  btnExcluirCategoria.Enabled := False; // Desativa o botão Excluir
+  btnSalvarCategoria.Enabled := False; // Desativa o botão Salvar
+  btnCancelarCategoria.Enabled := False; // Desativa o botão Cancelar
   begin
   if MessageDlg('Confirma a exclusão do registro? Essa ação não poderá ser desfeita',
-  mtConfirmation, [mbYes, mbNo], 0) = mrYes then //tentar colocar em português.está ficando como yes ou no.
+  mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     dmConexao.dsCategoria.DataSet.Delete;
   end;
@@ -554,9 +690,15 @@ end;
 //excluir Genero
 procedure TfrmCadastro.btnExcluirGeneroClick(Sender: TObject);
 begin
+  // Lógica para excluir item
+  btnNovoGenero.Enabled := True;  // Ativa o botão Novo
+  btnEditGenero.Enabled := True; // Ativa o botão Editar
+  btnExcluirGenero.Enabled := False; // Desativa o botão Excluir
+  btnSalvarGenero.Enabled := False; // Desativa o botão Salvar
+  btnCancelarGenero.Enabled := False; // Desativa o botão Cancelar
   begin
   if MessageDlg('Confirma a exclusão do registro? Essa ação não poderá ser desfeita',
-  mtConfirmation, [mbYes, mbNo], 0) = mrYes then //tentar colocar em português.está ficando como yes ou no.
+  mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     dmConexao.dsGenero.DataSet.Delete;
   end;
@@ -565,20 +707,33 @@ end;
 //excluir item
 procedure TfrmCadastro.btnExcluirItemClick(Sender: TObject);
 begin
+  // Lógica para excluir item
+  btnNovoItem.Enabled := True;  // Ativa o botão Novo
+  btnEditItem.Enabled := True; // Ativa o botão Editar
+  btnExcluirItem.Enabled := False; // Desativa o botão Excluir
+  btnSalvarItem.Enabled := False; // Desativa o botão Salvar
+  btnCancelarItem.Enabled := False; // Desativa o botão Cancelar
   begin
   if MessageDlg('Confirma a exclusão do registro? Essa ação não poderá ser desfeita',
-  mtConfirmation, [mbYes, mbNo], 0) = mrYes then //tentar colocar em português.está ficando como yes ou no.
+  mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     dmConexao.dsItem.DataSet.Delete;
+
   end;
 end;
 end;
 //excluir local
 procedure TfrmCadastro.btnExcluirLocalClick(Sender: TObject);
 begin
+  // Lógica para excluir item
+  btnNovoLocal.Enabled := True;  // Ativa o botão Novo
+  btnEditLocal.Enabled := True; // Ativa o botão Editar
+  btnExcluirLocal.Enabled := False; // Desativa o botão Excluir
+  btnSalvarLocal.Enabled := False; // Desativa o botão Salvar
+  btnCancelarLocal.Enabled := False; // Desativa o botão Cancelar
    begin
   if MessageDlg('Confirma a exclusão do registro? Essa ação não poderá ser desfeita',
-  mtConfirmation, [mbYes, mbNo], 0) = mrYes then //tentar colocar em português.está ficando como yes ou no.
+  mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     dmConexao.dsLocal.DataSet.Delete;
   end;
@@ -597,6 +752,13 @@ end;
 //cancelar operação Categoria
 procedure TfrmCadastro.btnCancelarCategoriaClick(Sender: TObject);
 begin
+   // Lógica para cancelar a operação atual
+  btnNovoCategoria.Enabled := True;  // Ativa o botão Novo
+  btnEditCategoria.Enabled := True; // Ativa o botão Editar
+  btnExcluirCategoria.Enabled := True; // Ativa o botão Excluir
+  btnSalvarCategoria.Enabled := False; // Desativa o botão Salvar
+  btnCancelarCategoria.Enabled := False; // Desativa o botão Cancelar
+  //mesagem de confirmação
   if dmConexao.dsCategoria.DataSet.State in [dsEdit, dsInsert] then
   if MessageDlg('Tem certeza de que deseja cancelar a operação?',
   mtConfirmation, [mbYes, mbNo], 0) = mrYes then //tentar colocar em português.
@@ -609,8 +771,6 @@ begin
     cbGeneroItemCad.Clear;
     cbCategoriaItemCad.Clear;
     dbLocalItemCad.Clear;
-    dbTipoAquisicaoItemCad.Clear;
-    cbTipoAcervoItemCad.Clear;
     cbAvaliacaoItemCad.Clear;
     edtLancamentoItemCad.Clear;
     edtAquisicaoItemCad.Clear;
@@ -621,6 +781,13 @@ end;
 //cancelar operação genero
 procedure TfrmCadastro.btnCancelarGeneroClick(Sender: TObject);
 begin
+   // Lógica para cancelar a operação atual
+  btnNovoGenero.Enabled := True;  // Ativa o botão Novo
+  btnEditGenero.Enabled := True; // Ativa o botão Editar
+  btnExcluirGenero.Enabled := True; // Ativa o botão Excluir
+  btnSalvarGenero.Enabled := False; // Desativa o botão Salvar
+  btnCancelarGenero.Enabled := False; // Desativa o botão Cancelar
+  //mesagem de confirmação
   if dmConexao.dsGenero.DataSet.State in [dsEdit, dsInsert] then
   if MessageDlg('Tem certeza de que deseja cancelar a operação?',
   mtConfirmation, [mbYes, mbNo], 0) = mrYes then //tentar colocar em português.
@@ -633,6 +800,13 @@ end;
  //cancelar operação item
 procedure TfrmCadastro.btnCancelarItemClick(Sender: TObject);
 begin
+   // Lógica para cancelar a operação atual
+  btnNovoItem.Enabled := True;  // Ativa o botão Novo
+  btnEditItem.Enabled := True; // Ativa o botão Editar
+  btnExcluirItem.Enabled := True; // Ativa o botão Excluir
+  btnSalvarItem.Enabled := False; // Desativa o botão Salvar
+  btnCancelarItem.Enabled := False; // Desativa o botão Cancelar
+  //mesagem de confirmação
   if dmConexao.dsItem.DataSet.State in [dsEdit, dsInsert] then
   if MessageDlg('Tem certeza de que deseja cancelar a operação?',
   mtConfirmation, [mbYes, mbNo], 0) = mrYes then //tentar colocar em português.
@@ -646,6 +820,13 @@ end;
 //cancelar operação local
 procedure TfrmCadastro.btnCancelarLocalClick(Sender: TObject);
 begin
+   // Lógica para cancelar a operação atual
+  btnNovoLocal.Enabled := True;  // Ativa o botão Novo
+  btnEditLocal.Enabled := True; // Ativa o botão Editar
+  btnExcluirLocal.Enabled := True; // Ativa o botão Excluir
+  btnSalvarLocal.Enabled := False; // Desativa o botão Salvar
+  btnCancelarLocal.Enabled := False; // Desativa o botão Cancelar
+  //mesagem de confirmação
   if dmConexao.dsLocal.DataSet.State in [dsEdit, dsInsert] then
   if MessageDlg('Tem certeza de que deseja cancelar a operação?',
   mtConfirmation, [mbYes, mbNo], 0) = mrYes then //tentar colocar em português.

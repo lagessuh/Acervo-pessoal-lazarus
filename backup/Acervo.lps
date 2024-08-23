@@ -19,8 +19,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="69"/>
-        <CursorPos X="18" Y="69"/>
+        <TopLine Value="57"/>
+        <CursorPos X="5" Y="95"/>
         <UsageCount Value="203"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -32,7 +32,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="untdmConexao"/>
-        <CursorPos X="50" Y="34"/>
+        <TopLine Value="51"/>
+        <CursorPos X="10" Y="54"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -44,8 +45,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="183"/>
-        <CursorPos X="66" Y="207"/>
+        <TopLine Value="93"/>
+        <CursorPos X="28" Y="114"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -57,8 +58,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="40"/>
-        <CursorPos X="21" Y="51"/>
+        <TopLine Value="34"/>
+        <CursorPos X="17" Y="50"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -69,10 +70,9 @@
         <ComponentName Value="frmCadastro"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
-        <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="695"/>
-        <CursorPos X="37" Y="421"/>
+        <TopLine Value="714"/>
+        <CursorPos X="66" Y="733"/>
         <ComponentState Value="1"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -95,9 +95,9 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="15"/>
-        <CursorPos X="56" Y="18"/>
-        <UsageCount Value="196"/>
+        <TopLine Value="59"/>
+        <CursorPos X="80" Y="52"/>
+        <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -107,11 +107,11 @@
         <ComponentName Value="frmListaDesejos"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <IsVisibleTab Value="True"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="131"/>
-        <CursorPos X="23" Y="108"/>
-        <ComponentState Value="1"/>
-        <UsageCount Value="145"/>
+        <TopLine Value="199"/>
+        <CursorPos X="5" Y="219"/>
+        <UsageCount Value="170"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -121,13 +121,13 @@
         <WindowIndex Value="-1"/>
         <TopLine Value="67"/>
         <CursorPos X="7" Y="79"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="1"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
         <Filename Value="untfrmprincipal.lfm"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="1"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit>
       <Unit>
@@ -135,14 +135,14 @@
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
         <TopLine Value="49"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="1"/>
         <DefaultSyntaxHighlighter Value="XML"/>
       </Unit>
       <Unit>
         <Filename Value="Acervo.res"/>
         <EditorIndex Value="-1"/>
         <WindowIndex Value="-1"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="1"/>
         <DefaultSyntaxHighlighter Value="None"/>
       </Unit>
       <Unit>
@@ -150,15 +150,15 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="3979"/>
         <CursorPos Y="4009"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="5"/>
       </Unit>
       <Unit>
         <Filename Value="C:\lazarus\lcl\dbctrls.pp"/>
         <UnitName Value="DBCtrls"/>
         <EditorIndex Value="-1"/>
-        <TopLine Value="1761"/>
-        <CursorPos X="13" Y="1335"/>
-        <UsageCount Value="4"/>
+        <TopLine Value="1658"/>
+        <CursorPos Y="1670"/>
+        <UsageCount Value="11"/>
       </Unit>
       <Unit>
         <Filename Value="..\Biblioteca\untfrmcrudleitor.pas"/>
@@ -168,7 +168,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="80"/>
         <CursorPos X="87" Y="79"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="1"/>
       </Unit>
       <Unit>
         <Filename Value="..\Biblioteca\untcrudautor.pas"/>
@@ -177,14 +177,14 @@
         <UnitName Value="untCRUDAutor"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="64"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="5"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\..\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo\src\dbc\ZDbcPostgreSqlUtils.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="682"/>
         <CursorPos Y="699"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="11"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
@@ -195,7 +195,7 @@
         <UnitName Value="untCRUDLogin"/>
         <EditorIndex Value="-1"/>
         <CursorPos X="42" Y="48"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="1"/>
       </Unit>
       <Unit>
         <Filename Value="..\Biblioteca\untcrudusuario.pas"/>
@@ -205,14 +205,14 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="43"/>
         <CursorPos X="14" Y="80"/>
-        <UsageCount Value="1"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="..\..\..\AppData\Local\lazarus\onlinepackagemanager\packages\zeosdbo\src\component\ZAbstractRODataset.pas"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="4062"/>
         <CursorPos Y="4073"/>
-        <UsageCount Value="9"/>
+        <UsageCount Value="6"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
@@ -220,7 +220,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="881"/>
         <CursorPos X="56" Y="840"/>
-        <UsageCount Value="5"/>
+        <UsageCount Value="2"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
@@ -229,19 +229,19 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="159"/>
         <CursorPos X="40" Y="179"/>
-        <UsageCount Value="1"/>
+        <UsageCount Value="8"/>
       </Unit>
       <Unit>
         <Filename Value="C:\lazarus\lcl\include\customform.inc"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="1868"/>
         <CursorPos Y="1879"/>
-        <UsageCount Value="3"/>
+        <UsageCount Value="10"/>
       </Unit>
       <Unit>
         <Filename Value="untfrmpesquisa.lfm"/>
         <EditorIndex Value="-1"/>
-        <UsageCount Value="4"/>
+        <UsageCount Value="1"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit>
       <Unit>
@@ -249,137 +249,145 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="995"/>
         <CursorPos X="6" Y="1019"/>
-        <UsageCount Value="8"/>
+        <UsageCount Value="5"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
       </Unit>
       <Unit>
         <Filename Value="untdmconexao.lfm"/>
         <EditorIndex Value="-1"/>
         <TopLine Value="28"/>
-        <UsageCount Value="7"/>
+        <UsageCount Value="4"/>
         <DefaultSyntaxHighlighter Value="LFM"/>
+      </Unit>
+      <Unit>
+        <Filename Value="C:\lazarus\lcl\groupededit.pp"/>
+        <UnitName Value="GroupedEdit"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="304"/>
+        <CursorPos X="23" Y="316"/>
+        <UsageCount Value="10"/>
       </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
       <Position>
-        <Filename Value="untfrmpesquisa.pas"/>
-        <Caret Line="16" Column="77" TopLine="15"/>
-      </Position>
-      <Position>
-        <Filename Value="untfrmpesquisa.pas"/>
-        <Caret Line="17" Column="56" TopLine="15"/>
+        <Filename Value="untfrmlistadesejos.pas"/>
+        <Caret Line="207" Column="31" TopLine="192"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="251" Column="22" TopLine="244"/>
+        <Caret Line="240" Column="64" TopLine="227"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmprincipal.pas"/>
+        <Caret Line="112" Column="38" TopLine="100"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="250" Column="22" TopLine="243"/>
+        <Caret Line="511" Column="38" TopLine="500"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="249" Column="22" TopLine="242"/>
+        <Caret Line="365" Column="10" TopLine="350"/>
+      </Position>
+      <Position>
+        <Filename Value="untdmconexao.pas"/>
+        <Caret Line="68" Column="27" TopLine="50"/>
+      </Position>
+      <Position>
+        <Filename Value="untdmconexao.pas"/>
+        <Caret Line="70" Column="27" TopLine="52"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="248" Column="22" TopLine="241"/>
+        <Caret Line="319" Column="29" TopLine="298"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="247" Column="22" TopLine="240"/>
+        <Caret Line="719" Column="77" TopLine="703"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="246" Column="22" TopLine="239"/>
+        <Caret Line="464" Column="10" TopLine="638"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="245" Column="22" TopLine="238"/>
+        <Caret Line="711" Column="57" TopLine="704"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="244" Column="22" TopLine="237"/>
+        <Caret Line="710" Column="57" TopLine="703"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="251" Column="22" TopLine="244"/>
+        <Caret Line="709" Column="57" TopLine="702"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="250" Column="22" TopLine="243"/>
+        <Caret Line="708" Column="57" TopLine="701"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="251" Column="22" TopLine="244"/>
+        <Caret Line="707" Column="57" TopLine="700"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="252" Column="22" TopLine="245"/>
+        <Caret Line="706" Column="57" TopLine="699"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="251" Column="22" TopLine="244"/>
+        <Caret Line="705" Column="57" TopLine="698"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="250" Column="22" TopLine="243"/>
+        <Caret Line="704" Column="57" TopLine="697"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="249" Column="22" TopLine="242"/>
+        <Caret Line="703" Column="57" TopLine="696"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="248" Column="22" TopLine="241"/>
+        <Caret Line="711" Column="57" TopLine="704"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="247" Column="22" TopLine="240"/>
+        <Caret Line="710" Column="57" TopLine="703"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="246" Column="22" TopLine="239"/>
+        <Caret Line="709" Column="57" TopLine="702"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="245" Column="22" TopLine="238"/>
+        <Caret Line="708" Column="57" TopLine="701"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="244" Column="22" TopLine="237"/>
+        <Caret Line="707" Column="57" TopLine="700"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="252" Column="22" TopLine="245"/>
+        <Caret Line="706" Column="57" TopLine="699"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="251" Column="22" TopLine="244"/>
+        <Caret Line="705" Column="57" TopLine="698"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="252" Column="22" TopLine="245"/>
+        <Caret Line="704" Column="57" TopLine="697"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="253" Column="22" TopLine="246"/>
+        <Caret Line="703" Column="57" TopLine="696"/>
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="252" Column="22" TopLine="245"/>
+        <Caret Line="711" Column="57" TopLine="704"/>
       </Position>
       <Position>
-        <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="416" Column="65" TopLine="405"/>
-      </Position>
-      <Position>
-        <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="421" Column="36" TopLine="411"/>
-      </Position>
-      <Position>
-        <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="443" Column="35" TopLine="427"/>
+        <Filename Value="untfrmlistadesejos.pas"/>
+        <Caret Line="180" Column="26" TopLine="164"/>
       </Position>
     </JumpHistory>
     <RunParams>

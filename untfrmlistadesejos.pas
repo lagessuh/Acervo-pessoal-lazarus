@@ -59,9 +59,9 @@ type
     procedure btnExcluirListaDesejosClick(Sender: TObject);
     procedure btnLimparListaDesejosClick(Sender: TObject);
     procedure btnNovoListaDesejosClick(Sender: TObject);
-    procedure btnPesquisarItemClick(Sender: TObject);
     procedure btnPesquisarListaClick(Sender: TObject);
     procedure btnSalvarListaDesejosClick(Sender: TObject);
+    procedure edtDataDesejosChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
     function CamposPreenchidos: Boolean;
@@ -79,50 +79,54 @@ implementation
 
 { TfrmListaDesejos }
 
-procedure TfrmListaDesejos.btnPesquisarListaClick(Sender: TObject);
-begin
-  dmConexao.qryLista.Close;
-
-  dmConexao.qryLista.sql.Clear;
-  dmConexao.qryLista.sql.add('select * from lista_desejo where 1 = 1');
-
-  if trim(edtPesqNomeLista.Text) <> '' then
-  begin
-    dmConexao.qryLista.sql.add('and nm_desejo Ilike :nm_desejo');
-    dmConexao.qryLista.ParamByName ('nm_desejo').AsString:= '%' + edtPesqNomeLista.Text + '%';
-  end;
-
-  if trim(edtPesqAutorLista.Text) <> '' then
-  begin
-    dmConexao.qryLista.sql.add('and autor like :ds_status');
-    dmConexao.qryLista.ParamByName('autor').asstring := '%' + edtPesqAutorLista.Text + '%';
-  end;
-
-   dmConexao.qryLista.Open;
-end;
-
+//salvar
 procedure TfrmListaDesejos.btnSalvarListaDesejosClick(Sender: TObject);
 begin
-  begin
-  begin
-    if not CamposPreenchidos then
-      Exit;
-  begin
+  // Lógica para salvar item
+  btnNovoListaDesejos.Enabled := True;  // Ativa o botão Novo
+  btnEditListaDesejos.Enabled := True; // Ativa o botão Editar
+  btnExcluirListaDesejos.Enabled := True; // Ativa o botão Excluir
+  btnSalvarListaDesejos.Enabled := False; // Desativa o botão Salvar
+  btnCancelarListaDesejos.Enabled := False; // Desativa o botão Cancelar
+  // Verifica se todos os campos obrigatórios estão preenchidos
+  if not CamposPreenchidos then
+    Exit;
+
+  // Verifica se o dataset está em modo de edição ou inserção
   if dmConexao.dsLista.DataSet.State in [dsEdit, dsInsert] then
   begin
-  if MessageDlg('Tem certeza que deseja salvar as alterações?', mtConfirmation,
-  [mbYes, mbNo], 0) = mrYes then //tentar colocar em português. está ficando como yes ou no.
-  begin
-    dmConexao.dsLista.DataSet.Post;
-  end;
-  end;
-  end;
-  end;
+    // Se estiver em modo de edição, solicita confirmação antes de salvar
+    if dmConexao.dsLista.DataSet.State = dsEdit then
+    begin
+      if MessageDlg('Tem certeza que deseja salvar as alterações?', mtConfirmation,
+        [mbYes, mbNo], 0) = mrYes then
+      begin
+        dmConexao.dsLista.DataSet.Post;
+      end;
+    end
+    // Se estiver em modo de inserção, salva diretamente sem pedir confirmação
+    else if dmConexao.dsUsuario.DataSet.State = dsInsert then
+    begin
+      dmConexao.dsLista.DataSet.Post;
+    end;
   end;
 end;
 
+procedure TfrmListaDesejos.edtDataDesejosChange(Sender: TObject);
+begin
+
+end;
+
+//novo item na lista
 procedure TfrmListaDesejos.btnNovoListaDesejosClick(Sender: TObject);
 begin
+  // desativar botões
+  btnNovoListaDesejos.Enabled := True;  // Desativa o botão Novo
+  btnEditListaDesejos.Enabled := False; // Desativa o botão Editar
+  btnExcluirListaDesejos.Enabled := False; // Desativa o botão Excluir
+  btnSalvarListaDesejos.Enabled := True; // Ativa o botão Salvar
+  btnCancelarListaDesejos.Enabled := True; // Ativa o botão Cancelar
+  //inserir itens
  dmConexao.dsLista.DataSet.Insert;
  edtNomeDesejos.SetFocus;
  edtDataDesejos.SetFocus;
@@ -130,8 +134,8 @@ begin
  edtAutorDesejos.SetFocus;
  rgAtendidoDesejos.SetFocus;
 end;
-
-procedure TfrmListaDesejos.btnPesquisarItemClick(Sender: TObject);
+//pesquisa
+procedure TfrmListaDesejos.btnPesquisarListaClick(Sender: TObject);
 begin
   dmConexao.qryLista.Close;
 
@@ -152,7 +156,7 @@ begin
 
    dmConexao.qryLista.Open;
 end;
-
+//editar lista
 procedure TfrmListaDesejos.btnEditListaDesejosClick(Sender: TObject);
 begin
   if not (dmConexao.dsLista.DataSet.State in [dsEdit, dsInsert]) then
@@ -165,9 +169,16 @@ begin
     rgAtendidoDesejos.SetFocus;
   end;
 end;
-
+//cancelar operação
 procedure TfrmListaDesejos.btnCancelarListaDesejosClick(Sender: TObject);
 begin
+  // Lógica para cancelar a operação atual
+  btnNovoListaDesejos.Enabled := True;  // Ativa o botão Novo
+  btnEditListaDesejos.Enabled := True; // Ativa o botão Editar
+  btnExcluirListaDesejos.Enabled := True; // Ativa o botão Excluir
+  btnSalvarListaDesejos.Enabled := False; // Desativa o botão Salvar
+  btnCancelarListaDesejos.Enabled := False; // Desativa o botão Cancelar
+  //mesagem de confirmação
   if dmConexao.dsLista.DataSet.State in [dsEdit, dsInsert] then
   if MessageDlg('Tem certeza de que deseja cancelar a operação?',
   mtConfirmation, [mbYes, mbNo], 0) = mrYes then //tentar colocar em português.
@@ -181,22 +192,30 @@ begin
     //rgAtendidoDesejos.Clear;
   end;
 end;
-
+//atualizar grid
 procedure TfrmListaDesejos.btnAtualizarListaDesejosClick(Sender: TObject);
 begin
   begin
        dmConexao.qryLista.Refresh;
   end;
 end;
-
+//excluir item da lista
 procedure TfrmListaDesejos.btnExcluirListaDesejosClick(Sender: TObject);
 begin
+  begin
+    // Lógica para excluir item
+  btnNovoListaDesejos.Enabled := True;  // Ativa o botão Novo
+  btnEditListaDesejos.Enabled := True; // Ativa o botão Editar
+  btnExcluirListaDesejos.Enabled := False; // Desativa o botão Excluir
+  btnSalvarListaDesejos.Enabled := False; // Desativa o botão Salvar
+  btnCancelarListaDesejos.Enabled := False; // Desativa o botão Cancelar
   begin
   if MessageDlg('Confirma a exclusão do registro? Essa ação não poderá ser desfeita',
   mtConfirmation, [mbYes, mbNo], 0) = mrYes then //tentar colocar em português.está ficando como yes ou no.
   begin
     dmConexao.dsLista.DataSet.Delete;
   end;
+end;
 end;
 end;
 
@@ -211,13 +230,9 @@ begin
 end;
 
 procedure TfrmListaDesejos.FormCreate(Sender: TObject);
-var centroX, centroY: integer;
 begin
-        centroX := Screen.Width div 2;
-        centroY := Screen.Height div 2;
+       edtDataDesejos.Date := Date;
 
-        Left := centroX - Width div 2;
-        Top := centroY - Height div 2;
 end;
 
 function TfrmListaDesejos.CamposPreenchidos: Boolean;

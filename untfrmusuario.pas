@@ -105,6 +105,13 @@ end;
 //Cancelar operação
 procedure TfrmUsuario.btnCancelarUsuarioClick(Sender: TObject);
 begin
+ // Lógica para cancelar a operação atual
+  btnNovoUsuario.Enabled := True;  // Ativa o botão Novo
+  btnEditUsuario.Enabled := True; // Ativa o botão Editar
+  btnExcluirUsuario.Enabled := True; // Ativa o botão Excluir
+  btnSalvarUsuario.Enabled := False; // Desativa o botão Salvar
+  btnCancelarUsuario.Enabled := False; // Desativa o botão Cancelar
+  //mesagem de confirmação
   if dmConexao.dsUsuario.DataSet.State in [dsEdit, dsInsert] then
   if MessageDlg('Tem certeza de que deseja cancelar a operação?',
   mtConfirmation, [mbYes, mbNo], 0) = mrYes then //tentar colocar em português.
@@ -113,7 +120,7 @@ begin
     dmConexao.dsUsuario.DataSet.Cancel;
     edtNomeUsuario.Clear;
     edtUserUsuario.Clear;
-    edtStatusUsuario.Clear; //edtStatusUsuario.ItemIndex := -1
+    //edtStatusUsuario.Clear; //edtStatusUsuario.ItemIndex := -1
     edtSenhaUsuario.Clear;
   end;
 end;
@@ -121,6 +128,13 @@ end;
 //editar registro
 procedure TfrmUsuario.btnEditUsuarioClick(Sender: TObject);
 begin
+ // desativar botões
+  btnNovoUsuario.Enabled := False;  // Desativa o botão Novo
+  btnEditUsuario.Enabled := False; // Desativa o botão Editar
+  btnExcluirUsuario.Enabled := False; // Desativa o botão Excluir
+  btnSalvarUsuario.Enabled := True; // Ativa o botão Salvar
+  btnCancelarUsuario.Enabled := True; // Ativa o botão Cancelar
+  begin
   if not (dmConexao.dsUsuario.DataSet.State in [dsEdit, dsInsert]) then
   begin
     dmConexao.dsUsuario.DataSet.Edit;
@@ -130,12 +144,20 @@ begin
     edtSenhaUsuario.SetFocus;
   end;
 end;
+end;
+
 //Exluir registro (delete)
 procedure TfrmUsuario.btnExcluirUsuarioClick(Sender: TObject);
   begin
+    // Lógica para excluir item
+  btnNovoUsuario.Enabled := True;  // Ativa o botão Novo
+  btnEditUsuario.Enabled := True; // Ativa o botão Editar
+  btnExcluirUsuario.Enabled := False; // Desativa o botão Excluir
+  btnSalvarUsuario.Enabled := False; // Desativa o botão Salvar
+  btnCancelarUsuario.Enabled := False; // Desativa o botão Cancelar
   begin
   if MessageDlg('Confirma a exclusão do registro? Essa ação não poderá ser desfeita',
-  mtConfirmation, [mbYes, mbNo], 0) = mrYes then //tentar colocar em português.está ficando como yes ou no.
+  mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     dmConexao.dsUsuario.DataSet.Delete;
   end;
@@ -147,13 +169,19 @@ begin
      edtIdUsuario.Clear;
     edtNomeUsuario.Clear;
     edtUserUsuario.Clear;
-    edtStatusUsuario.Clear; //edtStatusUsuario.ItemIndex := -1
+    //edtStatusUsuario.ItemIndex := -1
     edtSenhaUsuario.Clear;
 end;
-
 //inserir novo registro (insert)
 procedure TfrmUsuario.btnNovoUsuarioClick(Sender: TObject);
 begin
+// desativar botões
+  btnNovoUsuario.Enabled := True;  // Desativa o botão Novo
+  btnEditUsuario.Enabled := False; // Desativa o botão Editar
+  btnExcluirUsuario.Enabled := False; // Desativa o botão Excluir
+  btnSalvarUsuario.Enabled := True; // Ativa o botão Salvar
+  btnCancelarUsuario.Enabled := True; // Ativa o botão Cancelar
+  //inserir itens
   dmConexao.dsUsuario.DataSet.Insert;
   edtNomeUsuario.SetFocus;
   edtUserUsuario.SetFocus;
@@ -191,21 +219,34 @@ end;
  //Salvar registros
 procedure TfrmUsuario.btnSalvarUsuarioClick(Sender: TObject);
 begin
-  begin
-    if not CamposPreenchidos then
-      Exit;
-  begin
+// Lógica para salvar item
+  btnNovoUsuario.Enabled := True;  // Ativa o botão Novo
+  btnEditUsuario.Enabled := True; // Ativa o botão Editar
+  btnExcluirUsuario.Enabled := True; // Ativa o botão Excluir
+  btnSalvarUsuario.Enabled := False; // Desativa o botão Salvar
+  btnCancelarUsuario.Enabled := False; // Desativa o botão Cancelar
+  // Verifica se todos os campos obrigatórios estão preenchidos
+  if not CamposPreenchidos then
+    Exit;
+
+  // Verifica se o dataset está em modo de edição ou inserção
   if dmConexao.dsUsuario.DataSet.State in [dsEdit, dsInsert] then
   begin
-  if MessageDlg('Tem certeza que deseja salvar as alterações?', mtConfirmation,
-  [mbYes, mbNo], 0) = mrYes then //tentar colocar em português. está ficando como yes ou no.
-  begin
-    dmConexao.dsUsuario.DataSet.Post;
+    // Se estiver em modo de edição, solicita confirmação antes de salvar
+    if dmConexao.dsUsuario.DataSet.State = dsEdit then
+    begin
+      if MessageDlg('Tem certeza que deseja salvar as alterações?', mtConfirmation,
+        [mbYes, mbNo], 0) = mrYes then
+      begin
+        dmConexao.dsUsuario.DataSet.Post;
+      end;
+    end
+    // Se estiver em modo de inserção, salva diretamente sem pedir confirmação
+    else if dmConexao.dsUsuario.DataSet.State = dsInsert then
+    begin
+      dmConexao.dsUsuario.DataSet.Post;
+    end;
   end;
-end;
-  end;
-
-end;
 end;
 
 procedure TfrmUsuario.FormCreate(Sender: TObject);
@@ -217,16 +258,6 @@ procedure TfrmUsuario.FormShow(Sender: TObject);
 begin
   pgcAcoesUsuario.ActivePage := tabConsultaUsuario;
 end;
-
-//procedure TfrmUsuario.FormCreate(Sender: TObject);
-  //var centroX, centroY: integer;
-//begin
-        //centroX := Screen.Width div 2;
-        //centroY := Screen.Height div 2;
-
-       // Left := centroX - Width div 2;
-       // Top := centroY - Height div 2;
-//end;
 
 function TfrmUsuario.CamposPreenchidos: Boolean;
 begin
@@ -256,6 +287,15 @@ begin
   if Trim(edtSenhaUsuario.Text) = '' then
   begin
     MostrarMensagemCampoEmBranco(edtSenhaUsuario, 'Senha');
+    Result := False;
+    Exit;
+  end;
+
+  // Verificação do comprimento da senha
+  if Length(edtSenhaUsuario.Text) < 8 then
+  begin
+    ShowMessage('A senha deve ter no mínimo 8 caracteres. Por favor, insira uma senha válida.');
+    edtSenhaUsuario.SetFocus;
     Result := False;
     Exit;
   end;

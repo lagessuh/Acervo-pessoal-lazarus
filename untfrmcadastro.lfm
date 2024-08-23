@@ -1,7 +1,7 @@
 object frmCadastro: TfrmCadastro
-  Left = 215
+  Left = 225
   Height = 851
-  Top = 79
+  Top = 92
   Width = 1602
   Caption = 'Cadastro'
   ClientHeight = 0
@@ -9,6 +9,7 @@ object frmCadastro: TfrmCadastro
   Color = clInactiveCaption
   DefaultMonitor = dmMainForm
   DesignTimePPI = 120
+  OnCreate = FormCreate
   Position = poDesktopCenter
   LCLVersion = '3.2.0.0'
   object pgcCadastro: TPageControl
@@ -16,9 +17,10 @@ object frmCadastro: TfrmCadastro
     Height = 787
     Top = 64
     Width = 1394
-    ActivePage = tbsGenero
+    ActivePage = tabItem
     Align = alClient
-    TabIndex = 0
+    AutoSize = True
+    TabIndex = 3
     TabOrder = 0
     object tbsGenero: TTabSheet
       AutoSize = True
@@ -31,9 +33,9 @@ object frmCadastro: TfrmCadastro
         Height = 700
         Top = 56
         Width = 1384
-        ActivePage = tabCadastroGenero
+        ActivePage = tabConsultaGenero
         ParentFont = False
-        TabIndex = 1
+        TabIndex = 0
         TabOrder = 1
         object tabConsultaGenero: TTabSheet
           Caption = 'Consulta'
@@ -1959,46 +1961,17 @@ object frmCadastro: TfrmCadastro
           ClientHeight = 667
           ClientWidth = 1376
           TabVisible = False
-          object DBGrid19: TDBGrid
-            Left = 0
-            Height = 370
-            Top = 297
-            Width = 1376
-            Align = alBottom
-            AlternateColor = clGradientInactiveCaption
-            AutoEdit = False
-            Color = clInactiveCaption
-            Columns = <            
-              item
-                Alignment = taCenter
-                Title.Alignment = taCenter
-                Title.Caption = '#'
-                Width = 50
-                FieldName = 'id_categoria'
-              end            
-              item
-                Title.Caption = 'Categoria'
-                Width = 1181
-                FieldName = 'ds_categoria'
-              end>
-            DataSource = dmConexao.dsCategoria
-            DoubleBuffered = True
-            Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgHeaderHotTracking]
-            ParentDoubleBuffered = False
-            ReadOnly = True
-            TabOrder = 0
-          end
           object GroupBox12: TPanel
             Left = 0
-            Height = 296
+            Height = 408
             Top = 0
             Width = 1376
-            ClientHeight = 296
+            ClientHeight = 408
             ClientWidth = 1376
             Color = clInactiveCaption
             ParentBackground = False
             ParentColor = False
-            TabOrder = 1
+            TabOrder = 0
             object GroupBox3: TGroupBox
               Left = 16
               Height = 176
@@ -2167,6 +2140,35 @@ object frmCadastro: TfrmCadastro
                 TabOrder = 1
               end
             end
+          end
+          object DBGrid19: TDBGrid
+            Left = 0
+            Height = 370
+            Top = 297
+            Width = 1376
+            Align = alBottom
+            AlternateColor = clGradientInactiveCaption
+            AutoEdit = False
+            Color = clInactiveCaption
+            Columns = <            
+              item
+                Alignment = taCenter
+                Title.Alignment = taCenter
+                Title.Caption = '#'
+                Width = 50
+                FieldName = 'id_categoria'
+              end            
+              item
+                Title.Caption = 'Categoria'
+                Width = 1181
+                FieldName = 'ds_categoria'
+              end>
+            DataSource = dmConexao.dsCategoria
+            DoubleBuffered = True
+            Options = [dgEditing, dgTitles, dgIndicator, dgColumnResize, dgColLines, dgRowLines, dgTabs, dgConfirmDelete, dgCancelOnExit, dgHeaderHotTracking]
+            ParentDoubleBuffered = False
+            ReadOnly = True
+            TabOrder = 1
           end
         end
         object tabCadastroCategoria: TTabSheet
@@ -3806,9 +3808,9 @@ object frmCadastro: TfrmCadastro
         Height = 700
         Top = 56
         Width = 1384
-        ActivePage = tabConsultaLocal
+        ActivePage = tabCadastroLocal
         ParentFont = False
-        TabIndex = 0
+        TabIndex = 1
         TabOrder = 0
         object tabConsultaLocal: TTabSheet
           Caption = 'Consulta'
@@ -5693,16 +5695,16 @@ object frmCadastro: TfrmCadastro
       TabVisible = False
       object pgcAcoesItem: TPageControl
         Left = -8
-        Height = 692
-        Top = 64
+        Height = 704
+        Top = 56
         Width = 1398
-        ActivePage = tabConsultaItem
+        ActivePage = tabCadastroItem
         ParentFont = False
-        TabIndex = 0
+        TabIndex = 1
         TabOrder = 0
         object tabConsultaItem: TTabSheet
           Caption = 'Consulta'
-          ClientHeight = 659
+          ClientHeight = 671
           ClientWidth = 1390
           TabVisible = False
           object GroupBox9: TPanel
@@ -5911,7 +5913,7 @@ object frmCadastro: TfrmCadastro
           object DBGrid23: TDBGrid
             Left = 0
             Height = 363
-            Top = 296
+            Top = 308
             Width = 1390
             Align = alBottom
             AutoEdit = False
@@ -5998,34 +6000,33 @@ object frmCadastro: TfrmCadastro
         end
         object tabCadastroItem: TTabSheet
           Caption = 'Cadastro'
-          ClientHeight = 659
+          ClientHeight = 671
           ClientWidth = 1390
           TabVisible = False
           object GroupBox8: TPanel
-            Left = 0
-            Height = 400
+            Left = -2
+            Height = 688
             Top = 0
             Width = 1392
-            ClientHeight = 400
+            ClientHeight = 688
             ClientWidth = 1392
             Color = clInactiveCaption
             ParentBackground = False
             ParentColor = False
             TabOrder = 0
             object GroupBox7: TGroupBox
-              Left = 16
-              Height = 192
-              Top = 24
-              Width = 1344
-              Caption = 'Cadastro'
-              ClientHeight = 167
-              ClientWidth = 1340
+              Left = 24
+              Height = 304
+              Top = 32
+              Width = 1200
+              ClientHeight = 279
+              ClientWidth = 1196
               Color = clInactiveCaption
               ParentBackground = False
               ParentColor = False
               TabOrder = 0
               object Label27: TLabel
-                Left = 8
+                Left = 200
                 Height = 20
                 Top = 0
                 Width = 18
@@ -6033,7 +6034,7 @@ object frmCadastro: TfrmCadastro
                 ParentColor = False
               end
               object edtIdItem: TDBEdit
-                Left = 8
+                Left = 200
                 Height = 28
                 Top = 24
                 Width = 38
@@ -6046,7 +6047,7 @@ object frmCadastro: TfrmCadastro
                 TabOrder = 0
               end
               object Label12: TLabel
-                Left = 56
+                Left = 248
                 Height = 20
                 Top = 0
                 Width = 44
@@ -6054,7 +6055,7 @@ object frmCadastro: TfrmCadastro
                 ParentColor = False
               end
               object edtNomeItemCad: TDBEdit
-                Left = 56
+                Left = 248
                 Height = 28
                 Top = 24
                 Width = 358
@@ -6064,7 +6065,7 @@ object frmCadastro: TfrmCadastro
                 TabOrder = 1
               end
               object Label15: TLabel
-                Left = 424
+                Left = 616
                 Height = 20
                 Top = 0
                 Width = 40
@@ -6072,7 +6073,7 @@ object frmCadastro: TfrmCadastro
                 ParentColor = False
               end
               object edtAutorItemCad: TDBEdit
-                Left = 424
+                Left = 616
                 Height = 28
                 Top = 24
                 Width = 358
@@ -6082,36 +6083,36 @@ object frmCadastro: TfrmCadastro
                 TabOrder = 2
               end
               object Label16: TLabel
-                Left = 792
+                Left = 248
                 Height = 20
-                Top = 0
+                Top = 56
                 Width = 48
                 Caption = 'Edição:'
                 ParentColor = False
               end
               object edtEdicaoItemCad: TDBEdit
-                Left = 792
+                Left = 248
                 Height = 28
-                Top = 24
-                Width = 185
+                Top = 80
+                Width = 169
                 DataField = 'edicao'
                 DataSource = dmConexao.dsItem
                 MaxLength = 50
                 TabOrder = 3
               end
               object Label29: TLabel
-                Left = 993
+                Left = 424
                 Height = 20
-                Top = 0
+                Top = 56
                 Width = 48
                 Caption = 'Gênero'
                 ParentColor = False
               end
               object cbGeneroItemCad: TDBLookupComboBox
-                Left = 993
+                Left = 424
                 Height = 28
-                Top = 24
-                Width = 185
+                Top = 80
+                Width = 182
                 DataField = 'id_genero'
                 DataSource = dmConexao.dsItem
                 KeyField = 'id_genero'
@@ -6122,18 +6123,18 @@ object frmCadastro: TfrmCadastro
                 TabOrder = 4
               end
               object Label30: TLabel
-                Left = 8
+                Left = 792
                 Height = 20
-                Top = 80
+                Top = 56
                 Width = 65
                 Caption = 'Categoria'
                 ParentColor = False
               end
               object cbCategoriaItemCad: TDBLookupComboBox
-                Left = 8
+                Left = 792
                 Height = 28
-                Top = 104
-                Width = 150
+                Top = 80
+                Width = 182
                 DataField = 'id_categoria'
                 DataSource = dmConexao.dsItem
                 KeyField = 'id_categoria'
@@ -6144,18 +6145,18 @@ object frmCadastro: TfrmCadastro
                 TabOrder = 5
               end
               object Label31: TLabel
-                Left = 168
+                Left = 248
                 Height = 20
-                Top = 80
+                Top = 113
                 Width = 125
                 Caption = 'Local de Aquisição'
                 ParentColor = False
               end
               object dbLocalItemCad: TDBLookupComboBox
-                Left = 168
+                Left = 248
                 Height = 28
-                Top = 104
-                Width = 150
+                Top = 135
+                Width = 169
                 DataField = 'id_local_aquisicao'
                 DataSource = dmConexao.dsItem
                 KeyField = 'id_local_aquisicao'
@@ -6165,73 +6166,19 @@ object frmCadastro: TfrmCadastro
                 LookupCache = False
                 TabOrder = 6
               end
-              object Label32: TLabel
-                Left = 328
-                Height = 20
-                Top = 80
-                Width = 130
-                Caption = 'Forma de aquisição'
-                ParentColor = False
-              end
-              object dbTipoAquisicaoItemCad: TDBComboBox
-                Left = 328
-                Height = 28
-                Hint = 'P: Presente'#13#10'C: Compra'
-                Top = 104
-                Width = 125
-                DataField = 'tipo_aquisicao'
-                DataSource = dmConexao.dsItem
-                ItemHeight = 20
-                Items.Strings = (
-                  'P'
-                  'C'
-                )
-                MaxLength = 0
-                ParentShowHint = False
-                ShowHint = True
-                Style = csDropDownList
-                TabOrder = 7
-              end
-              object Label33: TLabel
-                Left = 464
-                Height = 20
-                Top = 80
-                Width = 33
-                Caption = 'Tipo:'
-                ParentColor = False
-              end
-              object cbTipoAcervoItemCad: TDBComboBox
-                Left = 464
-                Height = 28
-                Hint = 'F: Físico'#13#10'D: Digital'
-                Top = 104
-                Width = 150
-                DataField = 'tipo_acervo'
-                DataSource = dmConexao.dsItem
-                ItemHeight = 20
-                Items.Strings = (
-                  'D'
-                  'F'
-                )
-                MaxLength = 0
-                ParentShowHint = False
-                ShowHint = True
-                Style = csDropDownList
-                TabOrder = 8
-              end
               object Label34: TLabel
-                Left = 629
+                Left = 616
                 Height = 20
-                Top = 80
+                Top = 112
                 Width = 68
                 Caption = 'Avaliação:'
                 ParentColor = False
               end
               object cbAvaliacaoItemCad: TDBComboBox
-                Left = 624
+                Left = 616
                 Height = 28
-                Top = 104
-                Width = 150
+                Top = 136
+                Width = 166
                 ItemHeight = 20
                 Items.Strings = (
                   '5 - Excelente'
@@ -6241,21 +6188,69 @@ object frmCadastro: TfrmCadastro
                   '1 - Ruim'
                 )
                 MaxLength = 0
-                TabOrder = 9
+                TabOrder = 7
               end
               object Label36: TLabel
-                Left = 928
+                Left = 424
                 Height = 20
-                Top = 80
+                Top = 112
                 Width = 122
                 Caption = 'Data de Aquisição'
                 ParentColor = False
               end
               object edtAquisicaoItemCad: TDBDateEdit
-                Left = 928
+                Left = 424
                 Height = 28
-                Top = 104
-                Width = 129
+                Top = 136
+                Width = 182
+                CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+                DefaultToday = True
+                DateOrder = doNone
+                ButtonWidth = 29
+                NumGlyphs = 1
+                MaxLength = 0
+                TabOrder = 8
+                Text = '04/01/2010'
+                DataField = 'dt_aquisicao'
+                DataSource = dmConexao.dsItem
+              end
+              object Label37: TLabel
+                Left = 792
+                Height = 20
+                Top = 112
+                Width = 119
+                Caption = 'Data de Cadastro:'
+                ParentColor = False
+              end
+              object edtdataItemCad: TDBDateEdit
+                Left = 792
+                Height = 28
+                Top = 136
+                Width = 182
+                CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
+                DefaultToday = True
+                DateOrder = doNone
+                ButtonWidth = 29
+                NumGlyphs = 1
+                MaxLength = 0
+                TabOrder = 9
+                Text = '05/08/2024'
+                DataField = 'dt_cadastro'
+                DataSource = dmConexao.dsItem
+              end
+              object Label35: TLabel
+                Left = 616
+                Height = 20
+                Top = 56
+                Width = 133
+                Caption = 'Ano de Lançamento'
+                ParentColor = False
+              end
+              object edtLancamentoItemCad: TDBDateEdit
+                Left = 616
+                Height = 28
+                Top = 80
+                Width = 166
                 CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
                 DefaultToday = True
                 DateOrder = doNone
@@ -6267,69 +6262,83 @@ object frmCadastro: TfrmCadastro
                 DataField = 'dt_aquisicao'
                 DataSource = dmConexao.dsItem
               end
-              object Label37: TLabel
-                Left = 1072
-                Height = 20
-                Top = 80
-                Width = 119
-                Caption = 'Data de Cadastro:'
-                ParentColor = False
-              end
-              object edtdataItemCad: TDBDateEdit
-                Left = 1072
-                Height = 28
-                Top = 104
-                Width = 129
-                CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
-                DefaultToday = True
-                DateOrder = doNone
-                ButtonWidth = 29
-                NumGlyphs = 1
-                MaxLength = 0
+              object rgTipoAcervoItem: TDBRadioGroup
+                Left = 616
+                Height = 88
+                Top = 176
+                Width = 264
+                AutoFill = True
+                Caption = 'Tipo do Item'
+                ChildSizing.LeftRightSpacing = 6
+                ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+                ChildSizing.EnlargeVertical = crsHomogenousChildResize
+                ChildSizing.ShrinkHorizontal = crsScaleChilds
+                ChildSizing.ShrinkVertical = crsScaleChilds
+                ChildSizing.Layout = cclLeftToRightThenTopToBottom
+                ChildSizing.ControlsPerLine = 1
+                DataField = 'tipo_acervo'
+                DataSource = dmConexao.dsItem
+                Items.Strings = (
+                  'Físico'
+                  'Digital'
+                )
                 TabOrder = 11
-                Text = '05/08/2024'
-                DataField = 'dt_cadastro'
+                Values.Strings = (
+                  'F'
+                  'D'
+                )
+              end
+              object rgTipoAquisicao: TDBRadioGroup
+                Left = 342
+                Height = 88
+                Top = 176
+                Width = 264
+                AutoFill = True
+                Caption = 'Forma de Aquisição'
+                ChildSizing.LeftRightSpacing = 6
+                ChildSizing.EnlargeHorizontal = crsHomogenousChildResize
+                ChildSizing.EnlargeVertical = crsHomogenousChildResize
+                ChildSizing.ShrinkHorizontal = crsScaleChilds
+                ChildSizing.ShrinkVertical = crsScaleChilds
+                ChildSizing.Layout = cclLeftToRightThenTopToBottom
+                ChildSizing.ControlsPerLine = 1
+                DataField = 'tipo_aquisicao'
                 DataSource = dmConexao.dsItem
-              end
-              object Label35: TLabel
-                Left = 784
-                Height = 20
-                Top = 80
-                Width = 133
-                Caption = 'Ano de Lançamento'
-                ParentColor = False
-              end
-              object edtLancamentoItemCad: TDBDateEdit
-                Left = 784
-                Height = 28
-                Top = 104
-                Width = 129
-                CalendarDisplaySettings = [dsShowHeadings, dsShowDayNames]
-                DefaultToday = True
-                DateOrder = doNone
-                ButtonWidth = 29
-                NumGlyphs = 1
-                MaxLength = 0
+                Items.Strings = (
+                  'Compra'
+                  'Presente'
+                )
                 TabOrder = 12
-                Text = '04/01/2010'
-                DataField = 'dt_aquisicao'
-                DataSource = dmConexao.dsItem
+                Values.Strings = (
+                  'C'
+                  'P'
+                )
+              end
+              object Label26: TLabel
+                Left = 8
+                Height = 25
+                Top = 0
+                Width = 71
+                Caption = 'Cadastro'
+                Font.Height = 25
+                ParentColor = False
+                ParentFont = False
               end
             end
             object Panel6: TPanel
-              Left = 8
-              Height = 120
-              Top = 232
-              Width = 1352
+              Left = 1224
+              Height = 368
+              Top = 24
+              Width = 176
               BevelOuter = bvNone
-              ClientHeight = 120
-              ClientWidth = 1352
+              ClientHeight = 368
+              ClientWidth = 176
               Color = clInactiveCaption
               ParentBackground = False
               ParentColor = False
               TabOrder = 1
               object btnNovoItem: TBitBtn
-                Left = 10
+                Left = 50
                 Height = 46
                 Top = 0
                 Width = 110
@@ -6472,9 +6481,9 @@ object frmCadastro: TfrmCadastro
                 TabOrder = 0
               end
               object btnEditItem: TBitBtn
-                Left = 128
+                Left = 50
                 Height = 46
-                Top = 0
+                Top = 47
                 Width = 110
                 Caption = 'Editar'
                 Glyph.Data = {
@@ -6615,9 +6624,9 @@ object frmCadastro: TfrmCadastro
                 TabOrder = 1
               end
               object btnSalvarItem: TBitBtn
-                Left = 248
+                Left = 50
                 Height = 46
-                Top = 0
+                Top = 96
                 Width = 110
                 Caption = 'Salvar'
                 Glyph.Data = {
@@ -6758,9 +6767,9 @@ object frmCadastro: TfrmCadastro
                 TabOrder = 2
               end
               object btnExcluirItem: TBitBtn
-                Left = 368
+                Left = 48
                 Height = 46
-                Top = 0
+                Top = 144
                 Width = 110
                 Caption = 'Excluir'
                 Glyph.Data = {
@@ -6901,9 +6910,9 @@ object frmCadastro: TfrmCadastro
                 TabOrder = 3
               end
               object btnCancelarItem: TBitBtn
-                Left = 488
+                Left = 48
                 Height = 46
-                Top = 0
+                Top = 192
                 Width = 110
                 Caption = 'Cancelar'
                 Glyph.Data = {
@@ -7044,9 +7053,9 @@ object frmCadastro: TfrmCadastro
                 TabOrder = 4
               end
               object btnAtualizarItem: TBitBtn
-                Left = 1144
+                Left = 48
                 Height = 46
-                Top = 64
+                Top = 304
                 Width = 110
                 Caption = 'Atualizar'
                 Glyph.Data = {
@@ -7187,9 +7196,9 @@ object frmCadastro: TfrmCadastro
                 TabOrder = 5
               end
               object btnLimparItem: TBitBtn
-                Left = 1144
+                Left = 48
                 Height = 46
-                Top = -8
+                Top = 240
                 Width = 110
                 Caption = 'Limpar'
                 Glyph.Data = {
@@ -7333,8 +7342,8 @@ object frmCadastro: TfrmCadastro
           end
           object DBGrid24: TDBGrid
             Left = 0
-            Height = 299
-            Top = 360
+            Height = 323
+            Top = 348
             Width = 1390
             Align = alBottom
             AlternateColor = clGradientInactiveCaption
@@ -7342,74 +7351,59 @@ object frmCadastro: TfrmCadastro
             Color = clInactiveCaption
             Columns = <            
               item
-                Alignment = taCenter
-                Title.Alignment = taCenter
-                Title.Caption = '#'
-                Width = 50
+                Title.Caption = 'id_item'
                 FieldName = 'id_item'
               end            
               item
-                Title.Caption = 'Nome'
-                Width = 320
+                Title.Caption = 'nome'
                 FieldName = 'nome'
               end            
               item
-                Title.Caption = 'Edição'
-                Width = 150
+                Title.Caption = 'edicao'
                 FieldName = 'edicao'
               end            
               item
-                Title.Caption = 'Autor'
-                Width = 200
+                Title.Caption = 'autor'
                 FieldName = 'autor'
               end            
               item
-                Title.Caption = 'Tipo'
+                Title.Caption = 'tipo_acervo'
                 FieldName = 'tipo_acervo'
               end            
               item
-                Title.Caption = 'Data de Aquisição'
-                Width = 130
+                Title.Caption = 'dt_aquisicao'
                 FieldName = 'dt_aquisicao'
               end            
               item
-                Title.Caption = 'Data de Cadastro'
-                Width = 125
+                Title.Caption = 'dt_cadastro'
                 FieldName = 'dt_cadastro'
               end            
               item
-                Title.Caption = 'Forma de Aquisição'
-                Width = 140
+                Title.Caption = 'tipo_aquisicao'
                 FieldName = 'tipo_aquisicao'
               end            
               item
-                Title.Caption = 'Avaliação'
-                Width = 75
+                Title.Caption = 'avaliacao'
                 FieldName = 'avaliacao'
               end            
               item
-                Title.Caption = 'Ano de Lançamento'
-                Width = 150
+                Title.Caption = 'ano_lancamento'
                 FieldName = 'ano_lancamento'
               end            
               item
-                Title.Caption = 'Local de Aquisição'
-                Width = 150
+                Title.Caption = 'id_local_aquisicao'
                 FieldName = 'id_local_aquisicao'
               end            
               item
-                Title.Caption = 'Gênero'
-                Width = 100
+                Title.Caption = 'id_genero'
                 FieldName = 'id_genero'
               end            
               item
-                Title.Caption = 'Usuário'
-                Width = 100
+                Title.Caption = 'id_usuario'
                 FieldName = 'id_usuario'
               end            
               item
-                Title.Caption = 'Categoria'
-                Width = 100
+                Title.Caption = 'id_categoria'
                 FieldName = 'id_categoria'
               end>
             DataSource = dmConexao.dsItem
@@ -7423,10 +7417,10 @@ object frmCadastro: TfrmCadastro
       end
       object Panel10: TPanel
         Left = 0
-        Height = 88
+        Height = 80
         Top = 0
         Width = 1384
-        ClientHeight = 88
+        ClientHeight = 80
         ClientWidth = 1384
         Color = clInactiveCaption
         ParentBackground = False
