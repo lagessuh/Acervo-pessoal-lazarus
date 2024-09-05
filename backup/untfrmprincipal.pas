@@ -93,7 +93,6 @@ begin
   frmLogin := TfrmLogin.Create(Self);
    frmLogin.showmodal();
 end;
-
 procedure TfrmPrincipal.btnLogoutClick(Sender: TObject);
   var
   I: Integer;
@@ -118,7 +117,6 @@ begin
   // Agora, fechar o formulário principal sem encerrar a aplicação
   Self.Hide;  // Esconde o formulário principal
 end;
-
 procedure TfrmPrincipal.Timer1Timer(Sender: TObject);
 var
 quantidadeItens: Integer;

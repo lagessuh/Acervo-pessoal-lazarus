@@ -4,7 +4,7 @@ object frmLogin: TfrmLogin
   Top = 250
   Width = 424
   BorderIcons = []
-  Caption = 'frmLogin'
+  Caption = 'Login'
   ClientHeight = 400
   ClientWidth = 424
   Color = clInactiveCaption

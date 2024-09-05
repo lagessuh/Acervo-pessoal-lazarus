@@ -26,12 +26,14 @@ object dmConexao: TdmConexao
   object qryUsuario: TZQuery
     Connection = dbConexao
     UpdateObject = updQryUsuario
-    BeforePost = qryUsuarioBeforePost
     Active = True
     SQL.Strings = (
       'select * from usuario order by nm_usuario'
     )
     Params = <>
+    Properties.Strings = (
+      'select * from usuario'
+    )
     Left = 160
     Top = 16
   end
@@ -495,5 +497,14 @@ object dmConexao: TdmConexao
     Params = <>
     Left = 608
     Top = 112
+  end
+  object qryConsulta: TZQuery
+    Connection = dbConexao
+    SQL.Strings = (
+      ''
+    )
+    Params = <>
+    Left = 608
+    Top = 216
   end
 end

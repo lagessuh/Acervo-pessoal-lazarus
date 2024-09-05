@@ -1,4 +1,4 @@
-unit untfrmpesquisa;
+unit untfrmPesquisa;
 
 {$mode ObjFPC}{$H+}
 
@@ -15,20 +15,18 @@ type
   TfrmPesquisa = class(TForm)
     btnPesquisarLista: TBitBtn;
     DBGrid1: TDBGrid;
-    rgTipoAcervo: TDBRadioGroup;
     edtPesqItem: TEdit;
     edtPesqAutor: TEdit;
-    edtPesqUsuario: TEdit;
     edtPesqCategoria: TEdit;
     edtPesqGenero: TEdit;
     GroupBox1: TGroupBox;
-    Label1: TLabel;
-    Label2: TLabel;
-    Label3: TLabel;
-    Label4: TLabel;
-    Label6: TLabel;
-    rgTipoAcervo1: TRadioGroup;
+    Label26: TLabel;
+    Label27: TLabel;
+    Label29: TLabel;
+    Label30: TLabel;
+    Label31: TLabel;
     procedure btnPesquisarListaClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
   private
 
   public
@@ -44,51 +42,66 @@ implementation
 
 { TfrmPesquisa }
 
-
 procedure TfrmPesquisa.btnPesquisarListaClick(Sender: TObject);
 begin
   dmConexao.qryRelatorio.Close;
-  dmConexao.qryRelatorio.sql.Clear;
-  dmConexao.qryRelatorio.sql.add('select * from vw_relatorio_item where 1 = 1');
+  dmConexao.qryRelatorio.SQL.Clear;
 
-  if trim(edtPesqItem.Text) <> '' then
+  // Inicia a consulta filtrando pelo usuário logado
+  dmConexao.qryRelatorio.SQL.Add('SELECT * FROM vw_relatorio_item WHERE "ID Usuario" = :id_usuario');
+  dmConexao.qryRelatorio.ParamByName('id_usuario').AsInteger := dmConexao.UsuarioLogadoID;
+
+  // Filtros adicionais baseados nas entradas do usuário
+  if Trim(edtPesqItem.Text) <> '' then
   begin
-    dmConexao.qryRelatorio.sql.add('and "Item" like :item');
-    dmConexao.qryRelatorio.ParamByName ('item').AsString:= '%' + edtPesqItem.Text + '%';
+    dmConexao.qryRelatorio.SQL.Add('AND "Item" LIKE :item');
+    dmConexao.qryRelatorio.ParamByName('item').AsString := '%' + edtPesqItem.Text + '%';
   end;
 
-  if trim(edtPesqAutor.Text) <> '' then
+  if Trim(edtPesqAutor.Text) <> '' then
   begin
-    dmConexao.qryRelatorio.sql.add('and "Autor" like :autor');
-    dmConexao.qryRelatorio.ParamByName('autor').asstring := '%' + edtPesqAutor.Text + '%';
+    dmConexao.qryRelatorio.SQL.Add('AND "Autor" LIKE :autor');
+    dmConexao.qryRelatorio.ParamByName('autor').AsString := '%' + edtPesqAutor.Text + '%';
   end;
 
-  if trim(edtPesqUsuario.Text) <> '' then
+  if Trim(edtPesqUsuario.Text) <> '' then
   begin
-    dmConexao.qryRelatorio.sql.add('and "Nome do Usuário" like :usuario');
-    dmConexao.qryRelatorio.ParamByName('usuario').asstring := '%' + edtPesqUsuario.Text + '%';
+    dmConexao.qryRelatorio.SQL.Add('AND "Nome do Usuário" LIKE :usuario');
+    dmConexao.qryRelatorio.ParamByName('usuario').AsString := '%' + edtPesqUsuario.Text + '%';
   end;
 
-  if trim(edtPesqCategoria.Text) <> '' then
+  if Trim(edtPesqCategoria.Text) <> '' then
   begin
-    dmConexao.qryRelatorio.sql.add('and "Categoria" like :categoria');
-    dmConexao.qryRelatorio.ParamByName('categoria').asstring := '%' + edtPesqCategoria.Text + '%';
+    dmConexao.qryRelatorio.SQL.Add('AND "Categoria" LIKE :categoria');
+    dmConexao.qryRelatorio.ParamByName('categoria').AsString := '%' + edtPesqCategoria.Text + '%';
   end;
 
-  if trim(edtPesqGenero.Text) <> '' then
+  if Trim(edtPesqGenero.Text) <> '' then
   begin
-    dmConexao.qryRelatorio.sql.add('and "Gênero" like :genero');
-    dmConexao.qryRelatorio.ParamByName('genero').asstring := '%' + edtPesqGenero.Text + '%';
+    dmConexao.qryRelatorio.SQL.Add('AND "Gênero" LIKE :genero');
+    dmConexao.qryRelatorio.ParamByName('genero').AsString := '%' + edtPesqGenero.Text + '%';
   end;
 
-  if rgTipoAcervo.ItemIndex <> -1 then  // Verifica se algo foi selecionado
-begin
-  dmConexao.qryRelatorio.SQL.Add('and "Físico(F) ou Digital(D)?" = :tipo_acervo');
-  dmConexao.qryRelatorio.ParamByName('tipo_acervo').AsString := rgTipoAcervo.Values[rgTipoAcervo.ItemIndex];
+  // Abre a consulta para exibir os resultados filtrados
+  dmConexao.qryRelatorio.Open;
 end;
 
+procedure TfrmPesquisa.FormCreate(Sender: TObject);
+begin
+  with dmConexao.qryRelatorio do
+  begin
+    Close;  // Fecha a consulta atual se estiver aberta
+    SQL.Clear;  // Limpa a consulta atual
 
-   dmConexao.qryRelatorio.Open;
+    // Define a consulta SQL com o filtro para o usuário logado
+    SQL.Add('SELECT * FROM vw_relatorio_item WHERE "ID Usuario" = :id_usuario ORDER BY "Item"');
+
+    // Passa o ID do usuário logado como parâmetro
+    ParamByName('id_usuario').AsInteger := dmConexao.UsuarioLogadoID;
+
+    // Abre a consulta para carregar os dados na grid
+    Open;
+  end;
 end;
 
 end.

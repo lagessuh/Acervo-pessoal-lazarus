@@ -5,8 +5,8 @@ unit untdmConexao;
 interface
 
 uses
-  Classes, SysUtils, DB, SQLDB, ZConnection, ZDataset, ZSqlUpdate, UCZEOSConn,
-  ucsqldbconn, UCBase, UCSettings, Dialogs;
+  Classes, SysUtils, DB, SQLDB, ZConnection, ZDataset, ZSqlUpdate,
+  ucsqldbconn, Dialogs;
 
 type
 
@@ -22,6 +22,7 @@ type
     dsGenero: TDataSource;
     dbConexao: TZConnection;
     qryCategoria: TZQuery;
+    qryConsulta: TZQuery;
     qryItem: TZQuery;
     qryLocal: TZQuery;
     qryLista: TZQuery;
@@ -36,7 +37,6 @@ type
     updQryUsuario: TZUpdateSQL;
     updQryGenero: TZUpdateSQL;
     procedure DataModuleCreate(Sender: TObject);
-    procedure qryUsuarioBeforePost(DataSet: TDataSet);
   private
 
   public
@@ -51,24 +51,13 @@ implementation
 
 {$R *.lfm}
 
+
 { TdmConexao }
 
 procedure TdmConexao.DataModuleCreate(Sender: TObject);
 begin
   if not dbConexao.Connected then
   dbConexao.Connected := true;
-end;
-
-procedure TdmConexao.qryUsuarioBeforePost(DataSet: TDataSet);
-begin
-  if (DataSet.FieldByName('username').IsNull) or
-     (DataSet.FieldByName('senha').IsNull) or
-     (DataSet.FieldByName('ds_status').IsNull) or
-     (DataSet.FieldByName('nm_usuario').IsNull) then
-  begin
-    Dialogs.ShowMessage('Preencha todos os campos obrigatórios!');
-    Abort;
-  end;
 end;
 
 end.

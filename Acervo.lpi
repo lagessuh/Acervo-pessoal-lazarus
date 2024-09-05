@@ -135,6 +135,7 @@
         <ComponentName Value="frmPesquisa"/>
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
+        <UnitName Value="untfrmPesquisa"/>
       </Unit>
       <Unit>
         <Filename Value="untfrmlistadesejos.pas"/>

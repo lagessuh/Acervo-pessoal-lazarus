@@ -1,12 +1,12 @@
 object frmPrincipal: TfrmPrincipal
-  Left = 828
+  Left = 889
   Height = 432
-  Top = 225
+  Top = 227
   Width = 796
   Caption = '.: Sistema de Gestão de Acervo Pessoal .: Versão 001'
   ClientHeight = 432
   ClientWidth = 796
-  Color = clSkyBlue
+  Color = clInactiveCaption
   DesignTimePPI = 120
   DragMode = dmAutomatic
   OnCreate = FormCreate

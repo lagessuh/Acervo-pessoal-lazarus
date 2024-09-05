@@ -7,82 +7,111 @@ interface
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, DBGrids, DBCtrls,
   StdCtrls, ComCtrls, ExtCtrls, Buttons, DBExtCtrls, rxswitch, RxMDI,
-  untdmConexao, LCLType, ActnList, DB, ZDataset,
-  ZAbstractRODataset;
+  untdmConexao, LCLType, ActnList, EditBtn, DB,
+  ZDataset, ZAbstractRODataset;
 
 type
 
   { TfrmCadastro }
 
   TfrmCadastro = class(TForm)
+    btnAtualizarCategoria: TBitBtn;
+    btnAtualizarGenero: TBitBtn;
     btnAtualizarItem: TBitBtn;
     btnAtualizarLocal: TBitBtn;
-    btnAtualizarGenero: TBitBtn;
-    btnAtualizarCategoria: TBitBtn;
     btnCadastroGenero: TBitBtn;
     btnCadastroCategoria2: TBitBtn;
     btnCadastroItem: TBitBtn;
     btnCadastroLocal: TBitBtn;
+    btnCancelarCategoria: TBitBtn;
+    btnCancelarGenero: TBitBtn;
     btnCancelarItem: TBitBtn;
     btnCancelarLocal: TBitBtn;
-    btnCancelarGenero: TBitBtn;
-    btnCancelarCategoria: TBitBtn;
     btnConsultaGenero: TBitBtn;
     btnConsultaCategoria2: TBitBtn;
     btnConsultaItem: TBitBtn;
     btnConsultaLocal: TBitBtn;
+    btnEditCategoria: TBitBtn;
+    btnEditGenero: TBitBtn;
     btnEditItem: TBitBtn;
     btnEditLocal: TBitBtn;
-    btnEditGenero: TBitBtn;
-    btnEditCategoria: TBitBtn;
+    btnExcluirCategoria: TBitBtn;
+    btnExcluirGenero: TBitBtn;
     btnExcluirItem: TBitBtn;
     btnExcluirLocal: TBitBtn;
-    btnExcluirGenero: TBitBtn;
-    btnExcluirCategoria: TBitBtn;
+    btnLimparCategoria: TBitBtn;
+    btnLimparGenero: TBitBtn;
     btnLimparItem: TBitBtn;
     btnLimparLocal: TBitBtn;
-    btnLimparGenero: TBitBtn;
-    btnLimparCategoria: TBitBtn;
+    btnNovoCategoria: TBitBtn;
+    btnNovoGenero: TBitBtn;
     btnNovoItem: TBitBtn;
     btnNovoLocal: TBitBtn;
-    btnNovoGenero: TBitBtn;
-    btnNovoCategoria: TBitBtn;
     btnPesquisarCategoria: TBitBtn;
-    btnPesquisarItem: TBitBtn;
-    btnPesquisarLocal: TBitBtn;
+    btnPesquisarGenero: TBitBtn;
     btnGenero: TBitBtn;
     btnCategoria: TBitBtn;
     btnAquisicao: TBitBtn;
     btnItem: TBitBtn;
-    btnPesquisarGenero: TBitBtn;
-    btnSalvarItem: TBitBtn;
-    btnSalvarLocal: TBitBtn;
-    btnSalvarGenero: TBitBtn;
+    btnPesquisarItem: TBitBtn;
+    btnPesquisarLocal: TBitBtn;
     btnSalvarCategoria: TBitBtn;
-    cbAvaliacaoItemCad: TDBComboBox;
+    btnSalvarGenero: TBitBtn;
+    btnSalvarItem: TBitBtn;
+    avaliacaoItem: TDBComboBox;
+    btnSalvarLocal: TBitBtn;
     Consulta: TGroupBox;
     DBGrid17: TDBGrid;
     DBGrid19: TDBGrid;
     DBGrid20: TDBGrid;
+    DBGrid21: TDBGrid;
     DBGrid22: TDBGrid;
     DBGrid23: TDBGrid;
     DBGrid24: TDBGrid;
     Label26: TLabel;
+    Label32: TLabel;
+    Label33: TLabel;
+    Label39: TLabel;
+    Label40: TLabel;
+    Label41: TLabel;
+    Label42: TLabel;
+    Label43: TLabel;
+    Label44: TLabel;
+    Label45: TLabel;
+    Label46: TLabel;
+    Label47: TLabel;
+    Label48: TLabel;
+    Label49: TLabel;
+    Label50: TLabel;
+    Label51: TLabel;
+    Label52: TLabel;
+    Label53: TLabel;
+    Label54: TLabel;
+    Label55: TLabel;
+    Label56: TLabel;
+    Label57: TLabel;
+    Label58: TLabel;
+    Label59: TLabel;
+    Label60: TLabel;
+    Label61: TLabel;
+    Label62: TLabel;
+    Label63: TLabel;
+    Label64: TLabel;
+    Label65: TLabel;
     Panel6: TPanel;
-    rgTipoAcervoItem: TDBRadioGroup;
-    edtLancamentoItemCad: TDBDateEdit;
-    edtAquisicaoItemCad: TDBDateEdit;
-    edtdataItemCad: TDBDateEdit;
-    edtIdItem: TDBEdit;
-    edtNomeItemCad: TDBEdit;
-    edtAutorItemCad: TDBEdit;
-    edtEdicaoItemCad: TDBEdit;
-    cbGeneroItemCad: TDBLookupComboBox;
-    cbCategoriaItemCad: TDBLookupComboBox;
-    dbLocalItemCad: TDBLookupComboBox;
+    tipoAcervoItem: TDBRadioGroup;
+    anoLancamentoItem: TDBDateEdit;
+    dataAquisicaoItem: TDBDateEdit;
+    dataCadastroItem: TDBDateEdit;
+    idItem: TDBEdit;
+    nomeItem: TDBEdit;
+    autorItem: TDBEdit;
+    edicaoItem: TDBEdit;
+    generoItem: TDBLookupComboBox;
+    categoriaItem: TDBLookupComboBox;
+    localAquisicaoItem: TDBLookupComboBox;
     edtIdLocalCad: TDBEdit;
     edtLocalCad: TDBEdit;
-    DBGrid21: TDBGrid;
     edtIdCategoria: TDBEdit;
     edtCategoriaCad: TDBEdit;
     edtGeneroCad: TDBEdit;
@@ -106,31 +135,8 @@ type
     GroupBox8: TPanel;
     GroupBox9: TPanel;
     Image5: TImage;
-    Label12: TLabel;
-    Label13: TLabel;
-    Label14: TLabel;
-    Label15: TLabel;
-    Label16: TLabel;
-    Label18: TLabel;
-    Label2: TLabel;
-    Label21: TLabel;
-    Label23: TLabel;
-    Label24: TLabel;
-    Label25: TLabel;
-    Label27: TLabel;
-    Label29: TLabel;
-    Label3: TLabel;
-    Label30: TLabel;
-    Label31: TLabel;
-    Label34: TLabel;
-    Label35: TLabel;
-    Label36: TLabel;
-    Label37: TLabel;
-    Label38: TLabel;
     Label9: TLabel;
     Panel10: TPanel;
-    Panel4: TPanel;
-    Panel5: TPanel;
     PanelConsultaGenero: TPanel;
     GroupBox11: TPanel;
     GroupBox2: TGroupBox;
@@ -140,23 +146,19 @@ type
     Image8: TImage;
     Label1: TLabel;
     Label10: TLabel;
-    Label17: TLabel;
-    Label19: TLabel;
-    Label20: TLabel;
     Label22: TLabel;
     Label28: TLabel;
     Panel11: TPanel;
     Panel12: TPanel;
     Panel13: TPanel;
     Panel2: TPanel;
-    Panel3: TPanel;
     pgcAcoesGenero: TPageControl;
     pgcAcoesCategoria: TPageControl;
     pgcAcoesLocal: TPageControl;
     pgcCadastro: TPageControl;
     Panel1: TPanel;
     pgcAcoesItem: TPageControl;
-    rgTipoAquisicao: TDBRadioGroup;
+    tipoAquisicao: TDBRadioGroup;
     tabCadastroGenero: TTabSheet;
     tabCadastroCategoria: TTabSheet;
     tabCadastroLocal: TTabSheet;
@@ -213,8 +215,9 @@ type
     procedure btnSalvarGeneroClick(Sender: TObject);
     procedure btnSalvarItemClick(Sender: TObject);
     procedure btnSalvarLocalClick(Sender: TObject);
+    procedure dataAquisicaoItemChange(Sender: TObject);
+    procedure anoLancamentoItemChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
-    procedure RxDice1Change(Sender: TObject);
   private
     function CamposPreenchidosGenero: Boolean;
     function CamposPreenchidosCategoria: Boolean;
@@ -234,10 +237,6 @@ implementation
 
 { TfrmCadastro }
 
-procedure TfrmCadastro.RxDice1Change(Sender: TObject);
-begin
-
-end;
 
 procedure TfrmCadastro.btnGeneroClick(Sender: TObject);
 begin
@@ -263,17 +262,19 @@ end;
 //limpar campos item
 procedure TfrmCadastro.btnLimparItemClick(Sender: TObject);
 begin
-    edtIdItem.Clear;
-    edtNomeItemCad.Clear;
-    edtAutorItemCad.Clear;
-    edtEdicaoItemCad.Clear;
-    cbGeneroItemCad.Clear;
-    cbCategoriaItemCad.Clear;
-    dbLocalItemCad.Clear;
-    cbAvaliacaoItemCad.Clear;
-    edtLancamentoItemCad.Clear;
-    edtAquisicaoItemCad.Clear;
-    edtdataItemCad.Clear;
+    idItem.Clear;
+    nomeItem.Clear;
+    autorItem.Clear;
+    edicaoItem.Clear;
+    generoItem.KeyValue := Null;
+    categoriaItem.KeyValue := Null;
+    localAquisicaoItem.KeyValue := Null;
+    avaliacaoItem.Clear;
+    anoLancamentoItem.Clear;
+    dataAquisicaoItem.Clear;
+    dataCadastroItem.Clear;
+    tipoAquisicao.ItemIndex := -1;
+    tipoAcervoItem.ItemIndex := -1;
 end;
 
 //limpar campos local
@@ -286,6 +287,13 @@ end;
 //nova categoria
 procedure TfrmCadastro.btnNovoCategoriaClick(Sender: TObject);
 begin
+  // desativar botões
+  btnNovoCategoria.Enabled := True;  // Desativa o botão Novo
+  btnEditCategoria.Enabled := False; // Desativa o botão Editar
+  btnExcluirCategoria.Enabled := False; // Desativa o botão Excluir
+  btnSalvarCategoria.Enabled := True; // Ativa o botão Salvar
+  btnCancelarCategoria.Enabled := True; // Ativa o botão Cancelar
+  //inserir itens
   dmConexao.dsCategoria.DataSet.Insert;
   edtCategoriaCad.SetFocus
 end;
@@ -306,28 +314,30 @@ end;
 procedure TfrmCadastro.btnNovoItemClick(Sender: TObject);
 begin
   // desativar botões
-  btnNovoItem.Enabled := True;  // Desativa o botão Novo
+  btnNovoItem.Enabled := False;  // Desativa o botão Novo
   btnEditItem.Enabled := False; // Desativa o botão Editar
   btnExcluirItem.Enabled := False; // Desativa o botão Excluir
   btnSalvarItem.Enabled := True; // Ativa o botão Salvar
   btnCancelarItem.Enabled := True; // Ativa o botão Cancelar
+  dataCadastroItem.Enabled := False; // Desabilita o campo de data de cadastro
   //inserir itens
  dmConexao.dsItem.DataSet.Insert;
- edtNomeItemCad.SetFocus;
- edtAutorItemCad.SetFocus;
- edtEdicaoItemCad.SetFocus;
- cbGeneroItemCad.SetFocus;
- cbCategoriaItemCad.SetFocus;
- dbLocalItemCad.SetFocus;
- rgTipoAquisicao.SetFocus;
- rgTipoAcervoItem.SetFocus;
- cbAvaliacaoItemCad.SetFocus;
- edtLancamentoItemCad.SetFocus;
- edtAquisicaoItemCad.SetFocus;
- edtdataItemCad.SetFocus;
-
+ anoLancamentoItem.Clear;
+ dataCadastroItem.Clear;
+ dataAquisicaoItem.Clear;
+ nomeItem.SetFocus;
+ autorItem.SetFocus;
+ edicaoItem.SetFocus;
+ generoItem.SetFocus;
+ categoriaItem.SetFocus;
+ localAquisicaoItem.SetFocus;
+ tipoAquisicao.SetFocus;
+ tipoAcervoItem.SetFocus;
+ avaliacaoItem.SetFocus;
+ anoLancamentoItem.SetFocus;
+ dataAquisicaoItem.SetFocus;
+ dataCadastroItem.Date := Date;
 end;
-
 //novo Local
 procedure TfrmCadastro.btnNovoLocalClick(Sender: TObject);
 begin
@@ -418,8 +428,8 @@ begin
   btnNovoGenero.Enabled := True;  // Ativa o botão Novo
   btnEditGenero.Enabled := True; // Ativa o botão Editar
   btnExcluirGenero.Enabled := True; // Ativa o botão Excluir
-  btnSalvarGenero.Enabled := False; // Desativa o botão Salvar
-  btnCancelarGenero.Enabled := False; // Desativa o botão Cancelar
+  btnSalvarGenero.Enabled := True; // Ativa o botão Salvar
+  btnCancelarGenero.Enabled := True; // Ativa o botão Cancelar
   // Verifica se todos os campos obrigatórios estão preenchidos
   if not CamposPreenchidosGenero then
     Exit;
@@ -447,15 +457,15 @@ begin
     end;
   end;
 end;
-
+//salvar categoria
 procedure TfrmCadastro.btnSalvarCategoriaClick(Sender: TObject);
 begin
   // Lógica para salvar item
   btnNovoCategoria.Enabled := True;  // Ativa o botão Novo
   btnEditCategoria.Enabled := True; // Ativa o botão Editar
   btnExcluirCategoria.Enabled := True; // Ativa o botão Excluir
-  btnSalvarCategoria.Enabled := False; // Desativa o botão Salvar
-  btnCancelarCategoria.Enabled := False; // Desativa o botão Cancelar
+  btnSalvarCategoria.Enabled := True; // Ativa o botão Salvar
+  btnCancelarCategoria.Enabled := True; // Ativa o botão Cancelar
   // Verifica se todos os campos obrigatórios estão preenchidos
   if not CamposPreenchidosCategoria then
     Exit;
@@ -490,14 +500,18 @@ begin
   btnNovoItem.Enabled := True;  // Ativa o botão Novo
   btnEditItem.Enabled := True; // Ativa o botão Editar
   btnExcluirItem.Enabled := True; // Ativa o botão Excluir
-  btnSalvarItem.Enabled := False; // Desativa o botão Salvar
-  btnCancelarItem.Enabled := False; // Desativa o botão Cancelar
+  btnSalvarItem.Enabled := True; // Ativa o botão Salvar
+  btnCancelarItem.Enabled := True; // Ativa o botão Cancelar
   // Verifica se todos os campos obrigatórios estão preenchidos
   if not CamposPreenchidosItem then
     Exit;
 
   // Adiciona o ID do usuário logado antes de salvar
   dmConexao.dsItem.DataSet.FieldByName('id_usuario').AsInteger := dmConexao.UsuarioLogadoID;
+
+  //Adiciona a data atual no campo data de cadastro
+  dmConexao.dsItem.DataSet.FieldByName('dt_cadastro').AsDateTime := Date;
+
 
   // Verifica se o dataset está em modo de edição ou inserção
   if dmConexao.dsItem.DataSet.State in [dsEdit, dsInsert] then
@@ -529,8 +543,8 @@ begin
     btnNovoLocal.Enabled := True;  // Ativa o botão Novo
     btnEditLocal.Enabled := True; // Ativa o botão Editar
     btnExcluirLocal.Enabled := True; // Ativa o botão Excluir
-    btnSalvarLocal.Enabled := False; // Desativa o botão Salvar
-    btnCancelarLocal.Enabled := False; // Desativa o botão Cancelar
+    btnSalvarLocal.Enabled := True; // Ativa o botão Salvar
+    btnCancelarLocal.Enabled := True; // Ativa o botão Cancelar
     // Verifica se todos os campos obrigatórios estão preenchidos
   if not CamposPreenchidosLocal then
     Exit;
@@ -558,11 +572,38 @@ begin
     end;
   end;
 end;
+
+procedure TfrmCadastro.dataAquisicaoItemChange(Sender: TObject);
+begin
+  // Verifica se o campo de data é nulo
+  if dmConexao.qryItem.FieldByName('dt_aquisicao').IsNull then
+  begin
+    // Limpa o campo apenas se ainda não foi definido um valor
+    if (Sender as TDBDateEdit).Date = 0 then
+    begin
+      (Sender as TDBDateEdit).Clear;
+    end;
+  end;
+end;
+
+procedure TfrmCadastro.anoLancamentoItemChange(Sender: TObject);
+begin
+  // Verifica se o campo de data é nulo
+  if dmConexao.qryItem.FieldByName('ano_lancamento').IsNull then
+  begin
+    // Limpa o campo apenas se ainda não foi definido um valor
+    if (Sender as TDBDateEdit).Date = 0 then
+    begin
+      (Sender as TDBDateEdit).Clear;
+    end;
+  end;
+end;
+
 procedure TfrmCadastro.FormCreate(Sender: TObject);
 begin
-  edtLancamentoItemCad.Date := Date;
-  edtdataItemCad.Date := Date;
-  edtAquisicaoItemCad.Date := Date;
+  anoLancamentoItem.Date := Date;
+  dataCadastroItem.Date := Date;
+  dataAquisicaoItem.Date := Date;
 end;
 
 procedure TfrmCadastro.btnCategoriaClick(Sender: TObject);
@@ -634,22 +675,22 @@ begin
   btnExcluirItem.Enabled := False; // Desativa o botão Excluir
   btnSalvarItem.Enabled := True; // Ativa o botão Salvar
   btnCancelarItem.Enabled := True; // Ativa o botão Cancelar
+  dataCadastroItem.Enabled := False;; //Desabilita o campo da data de cadastro
    begin
   if not (dmConexao.dsItem.DataSet.State in [dsEdit, dsInsert]) then
   begin
     dmConexao.dsItem.DataSet.Edit;
-    edtNomeItemCad.SetFocus;
-    edtAutorItemCad.SetFocus;
-    edtEdicaoItemCad.SetFocus;
-    cbGeneroItemCad.SetFocus;
-    cbCategoriaItemCad.SetFocus;
-    dbLocalItemCad.SetFocus;
-    rgTipoAquisicao.SetFocus;
-    rgTipoAcervoItem.SetFocus;
-    cbAvaliacaoItemCad.SetFocus;
-    edtLancamentoItemCad.SetFocus;
-    edtAquisicaoItemCad.SetFocus;
-    edtdataItemCad.SetFocus;
+    nomeItem.SetFocus;
+    autorItem.SetFocus;
+    edicaoItem.SetFocus;
+    generoItem.SetFocus;
+    categoriaItem.SetFocus;
+    localAquisicaoItem.SetFocus;
+    tipoAquisicao.SetFocus;
+    tipoAcervoItem.SetFocus;
+    avaliacaoItem.SetFocus;
+    anoLancamentoItem.SetFocus;
+    dataAquisicaoItem.SetFocus;
   end;
 end;
 end;
@@ -673,36 +714,92 @@ end;
 // excluir categoria
 procedure TfrmCadastro.btnExcluirCategoriaClick(Sender: TObject);
 begin
-  // Lógica para excluir item
+  // Lógica para ativar/desativar botões
   btnNovoCategoria.Enabled := True;  // Ativa o botão Novo
-  btnEditCategoria.Enabled := True; // Ativa o botão Editar
-  btnExcluirCategoria.Enabled := False; // Desativa o botão Excluir
-  btnSalvarCategoria.Enabled := False; // Desativa o botão Salvar
+  btnEditCategoria.Enabled := True;  // Ativa o botão Editar
+  btnExcluirCategoria.Enabled := True; // Ativa o botão Excluir
+  btnSalvarCategoria.Enabled := False; // Desativa o botão Salvar (ajustado para falso, já que estamos excluindo)
   btnCancelarCategoria.Enabled := False; // Desativa o botão Cancelar
+
+  // Verifica se há itens associados à categoria antes de excluir
+  with dmConexao.qryConsulta do
   begin
-  if MessageDlg('Confirma a exclusão do registro? Essa ação não poderá ser desfeita',
-  mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT COUNT(*) FROM item WHERE id_categoria = :id_categoria');
+    ParamByName('id_categoria').AsInteger := dmConexao.dsCategoria.DataSet.FieldByName('id_categoria').AsInteger;
+    Open;
+
+    // Se a categoria está associada a algum item, impede a exclusão
+    if Fields[0].AsInteger > 0 then
+    begin
+      ShowMessage('Não é possível excluir a categoria "' + edtCategoriaCad.Text + '" porque está associada a um ou mais itens.');
+      Exit;
+    end;
+  end;
+
+  // Se não houver itens associados, solicita confirmação antes de excluir
+  if MessageDlg('Confirma a exclusão do registro "' + edtCategoriaCad.Text + '"? Essa ação não poderá ser desfeita.',
+    mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     dmConexao.dsCategoria.DataSet.Delete;
+    ShowMessage('Categoria excluída com sucesso.');
   end;
-end;
 end;
 //excluir Genero
 procedure TfrmCadastro.btnExcluirGeneroClick(Sender: TObject);
 begin
-  // Lógica para excluir item
+  // Atualiza o estado dos botões
   btnNovoGenero.Enabled := True;  // Ativa o botão Novo
-  btnEditGenero.Enabled := True; // Ativa o botão Editar
-  btnExcluirGenero.Enabled := False; // Desativa o botão Excluir
-  btnSalvarGenero.Enabled := False; // Desativa o botão Salvar
+  btnEditGenero.Enabled := True;  // Ativa o botão Editar
+  btnExcluirGenero.Enabled := True; // Ativa o botão Excluir
+  btnSalvarGenero.Enabled := True; // Ativa o botão Salvar
   btnCancelarGenero.Enabled := False; // Desativa o botão Cancelar
+
+  // Verifica se há itens associados ao gênero
+  with dmConexao.qryConsulta do
   begin
-  if MessageDlg('Confirma a exclusão do registro? Essa ação não poderá ser desfeita',
-  mtConfirmation, [mbYes, mbNo], 0) = mrYes then
-  begin
-    dmConexao.dsGenero.DataSet.Delete;
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT COUNT(*) FROM item WHERE id_genero = :id_genero');
+    ParamByName('id_genero').AsInteger := dmConexao.dsGenero.DataSet.FieldByName('id_genero').AsInteger;
+    Open;
+
+    if Fields[0].AsInteger > 0 then
+    begin
+      ShowMessage('Não é possível excluir o gênero "' + edtGeneroCad.Text + '" porque está associado a um ou mais itens.');
+      Exit;
+    end;
   end;
-end;
+
+  // Verifica se há registros associados na tabela lista_desejo
+  with dmConexao.qryConsulta do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT COUNT(*) FROM lista_desejo WHERE id_genero = :id_genero');
+    ParamByName('id_genero').AsInteger := dmConexao.dsGenero.DataSet.FieldByName('id_genero').AsInteger;
+    Open;
+
+    if Fields[0].AsInteger > 0 then
+    begin
+      ShowMessage('Não é possível excluir o gênero "' + edtGeneroCad.Text + '" porque está associado a um ou mais itens na lista de desejos.');
+      Exit;
+    end;
+  end;
+
+  // Solicita confirmação antes de excluir
+  if MessageDlg('Confirma a exclusão do registro "' + edtGeneroCad.Text + '"? Essa ação não poderá ser desfeita.',
+    mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+  begin
+    try
+      dmConexao.dsGenero.DataSet.Delete;
+      ShowMessage('Gênero excluído com sucesso.');
+    except
+      on E: Exception do
+        ShowMessage('Erro ao excluir o gênero: ' + E.Message);
+    end;
+  end;
 end;
 //excluir item
 procedure TfrmCadastro.btnExcluirItemClick(Sender: TObject);
@@ -710,15 +807,15 @@ begin
   // Lógica para excluir item
   btnNovoItem.Enabled := True;  // Ativa o botão Novo
   btnEditItem.Enabled := True; // Ativa o botão Editar
-  btnExcluirItem.Enabled := False; // Desativa o botão Excluir
-  btnSalvarItem.Enabled := False; // Desativa o botão Salvar
+  btnExcluirItem.Enabled := True; // Ativa o botão Excluir
+  btnSalvarItem.Enabled := True; // Ativa o botão Salvar
   btnCancelarItem.Enabled := False; // Desativa o botão Cancelar
   begin
-  if MessageDlg('Confirma a exclusão do registro? Essa ação não poderá ser desfeita',
+  if MessageDlg('Confirma a exclusão do registro "' + nomeItem.Text + '"? Essa ação não poderá ser desfeita',
   mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     dmConexao.dsItem.DataSet.Delete;
-
+    ShowMessage('Item excluído com sucesso.');
   end;
 end;
 end;
@@ -728,16 +825,34 @@ begin
   // Lógica para excluir item
   btnNovoLocal.Enabled := True;  // Ativa o botão Novo
   btnEditLocal.Enabled := True; // Ativa o botão Editar
-  btnExcluirLocal.Enabled := False; // Desativa o botão Excluir
-  btnSalvarLocal.Enabled := False; // Desativa o botão Salvar
+  btnExcluirLocal.Enabled := True; // Ativa o botão Excluir
+  btnSalvarLocal.Enabled := True; // Ativa o botão Salvar
   btnCancelarLocal.Enabled := False; // Desativa o botão Cancelar
-   begin
-  if MessageDlg('Confirma a exclusão do registro? Essa ação não poderá ser desfeita',
-  mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+
+  // Verifica se há itens associados à categoria antes de excluir
+  with dmConexao.qryConsulta do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT COUNT(*) FROM item WHERE id_local_aquisicao = :id_local_aquisicao');
+    ParamByName('id_local_aquisicao').AsInteger := dmConexao.dsLocal.DataSet.FieldByName('id_local_aquisicao').AsInteger;
+    Open;
+
+    // Se a categoria está associada a algum item, impede a exclusão
+    if Fields[0].AsInteger > 0 then
+    begin
+      ShowMessage('Não é possível excluir a categoria "' + edtLocalCad.Text + '" porque está associada a um ou mais itens.');
+      Exit;
+    end;
+  end;
+
+  // Se não houver itens associados, solicita confirmação antes de excluir
+  if MessageDlg('Confirma a exclusão do registro "' + edtLocalCad.Text + '"? Essa ação não poderá ser desfeita.',
+    mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     dmConexao.dsLocal.DataSet.Delete;
+    ShowMessage('Local de aquisição excluído com sucesso.');
   end;
-end;
 end;
 
 procedure TfrmCadastro.btnAquisicaoClick(Sender: TObject);
@@ -761,23 +876,12 @@ begin
   //mesagem de confirmação
   if dmConexao.dsCategoria.DataSet.State in [dsEdit, dsInsert] then
   if MessageDlg('Tem certeza de que deseja cancelar a operação?',
-  mtConfirmation, [mbYes, mbNo], 0) = mrYes then //tentar colocar em português.
-//está ficando como yes ou no.
+  mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     dmConexao.dsCategoria.DataSet.Cancel;
-    edtNomeItemCad.Clear;
-    edtAutorItemCad.Clear;
-    edtEdicaoItemCad.Clear;
-    cbGeneroItemCad.Clear;
-    cbCategoriaItemCad.Clear;
-    dbLocalItemCad.Clear;
-    cbAvaliacaoItemCad.Clear;
-    edtLancamentoItemCad.Clear;
-    edtAquisicaoItemCad.Clear;
-    edtdataItemCad.Clear;
+    edtCategoriaCad.Clear;
   end;
 end;
-
 //cancelar operação genero
 procedure TfrmCadastro.btnCancelarGeneroClick(Sender: TObject);
 begin
@@ -790,8 +894,7 @@ begin
   //mesagem de confirmação
   if dmConexao.dsGenero.DataSet.State in [dsEdit, dsInsert] then
   if MessageDlg('Tem certeza de que deseja cancelar a operação?',
-  mtConfirmation, [mbYes, mbNo], 0) = mrYes then //tentar colocar em português.
-//está ficando como yes ou no.
+  mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     dmConexao.dsGenero.DataSet.Cancel;
     edtGeneroCad.Clear;
@@ -809,11 +912,22 @@ begin
   //mesagem de confirmação
   if dmConexao.dsItem.DataSet.State in [dsEdit, dsInsert] then
   if MessageDlg('Tem certeza de que deseja cancelar a operação?',
-  mtConfirmation, [mbYes, mbNo], 0) = mrYes then //tentar colocar em português.
-//está ficando como yes ou no.
+  mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     dmConexao.dsItem.DataSet.Cancel;
-    edtLocalCad.Clear;
+    idItem.Clear;
+    nomeItem.Clear;
+    autorItem.Clear;
+    edicaoItem.Clear;
+    generoItem.KeyValue := Null;
+    categoriaItem.KeyValue := Null;
+    localAquisicaoItem.KeyValue := Null;
+    avaliacaoItem.Clear;
+    anoLancamentoItem.Clear;
+    dataAquisicaoItem.Clear;
+    dataCadastroItem.Clear;
+    tipoAquisicao.ItemIndex := -1;
+    tipoAcervoItem.ItemIndex := -1;
   end;
 end;
 
@@ -829,8 +943,7 @@ begin
   //mesagem de confirmação
   if dmConexao.dsLocal.DataSet.State in [dsEdit, dsInsert] then
   if MessageDlg('Tem certeza de que deseja cancelar a operação?',
-  mtConfirmation, [mbYes, mbNo], 0) = mrYes then //tentar colocar em português.
-//está ficando como yes ou no.
+  mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     dmConexao.dsLocal.DataSet.Cancel;
     edtLocalCad.Clear;
@@ -879,7 +992,7 @@ begin
   dmConexao.qryCategoria.Refresh;
 end;
 end;
-
+//funções de checagem de campos obrigatórios
 function TfrmCadastro.CamposPreenchidosGenero: Boolean;
 begin
   Result := True;
@@ -902,7 +1015,6 @@ begin
     Exit;
   end;
 end;
-
 function TfrmCadastro.CamposPreenchidosLocal: Boolean;
 begin
   Result := True;
@@ -918,20 +1030,33 @@ function TfrmCadastro.CamposPreenchidosItem: Boolean;
 begin
   Result := True;
 
-  if Trim(edtNomeItemCad.Text) = '' then
+  if Trim(nomeItem.Text) = '' then
   begin
-    MostrarMensagemCampoEmBranco(edtNomeItemCad, 'Nome');
+    MostrarMensagemCampoEmBranco(nomeItem, 'Nome');
     Result := False;
     Exit;
   end;
 
-  if Trim(edtdataItemCad.Text) = '' then
+  if Trim(categoriaItem.Text) = '' then
   begin
-    MostrarMensagemCampoEmBranco(edtdataItemCad, 'Data de Cadastro');
+    MostrarMensagemCampoEmBranco(categoriaItem, 'Categoria');
     Result := False;
     Exit;
   end;
 
+    if tipoAcervoItem.ItemIndex = -1 then
+  begin
+    MostrarMensagemCampoEmBranco(tipoAcervoItem, 'Tipo do Item');
+    Result := False;
+    Exit;
+  end;
+
+  if Trim(dataCadastroItem.Text) = '' then
+  begin
+    MostrarMensagemCampoEmBranco(dataCadastroItem, 'Data de Cadastro');
+    Result := False;
+    Exit;
+  end;
 end;
 
 procedure TfrmCadastro.MostrarMensagemCampoEmBranco(Campo: TWinControl; const NomeCampo: String);
@@ -939,6 +1064,4 @@ begin
   ShowMessage(Format('%s está em branco e precisa ser preenchido. Por favor, preencha-o para prosseguir com a operação.', [NomeCampo]));
   Campo.SetFocus;
 end;
-
 end.
-

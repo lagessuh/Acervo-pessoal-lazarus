@@ -6,10 +6,9 @@ interface
 
 uses
   Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Buttons,
-  DBCtrls, ComCtrls, ExtCtrls, ActnList, DBGrids,  rxtoolbar, RxMDI, rxspin, untdmConexao, DB,
-  ZDataset, ZAbstractRODataset, LCLType;
+  DBCtrls, ComCtrls, ExtCtrls, ActnList, DBGrids, rxtoolbar, RxMDI, rxspin,
+  untdmConexao, DB, ZDataset, ZAbstractRODataset, LCLType;
 
-//DBExtCtrls, ButtonPanel, ZConnection, ZAbstractDataset
 type
 
   { TfrmUsuario }
@@ -40,17 +39,19 @@ type
     GroupBox2: TGroupBox;
     Image2: TImage;
     Label12: TLabel;
-    Label13: TLabel;
     Label14: TLabel;
-    Label15: TLabel;
-    Label16: TLabel;
-    Label17: TLabel;
-    Label18: TLabel;
-    Label19: TLabel;
     Label2: TLabel;
-    Label20: TLabel;
+    Label21: TLabel;
+    Label22: TLabel;
+    Label23: TLabel;
+    Label24: TLabel;
+    Label25: TLabel;
+    Label26: TLabel;
+    Label27: TLabel;
+    Label28: TLabel;
+    Label29: TLabel;
+    Label30: TLabel;
     Panel1: TPanel;
-    Panel2: TPanel;
     Panel3: TPanel;
     Panel4: TPanel;
     pgcAcoesUsuario: TPageControl;
@@ -71,9 +72,7 @@ type
   private
     function CamposPreenchidos: Boolean;
     procedure MostrarMensagemCampoEmBranco(Campo: TWinControl; const NomeCampo: String);
-
   public
-
   end;
 
 var
@@ -87,176 +86,199 @@ implementation
 
 procedure TfrmUsuario.btnConsultaUsuarioClick(Sender: TObject);
 begin
- pgcAcoesUsuario.TabIndex := 0;
+  pgcAcoesUsuario.TabIndex := 0;
 end;
 
 procedure TfrmUsuario.btnCadastroUsuarioClick(Sender: TObject);
 begin
- pgcAcoesUsuario.TabIndex := 1;
+  pgcAcoesUsuario.TabIndex := 1;
 end;
-//atualizar
+
 procedure TfrmUsuario.btnAtualizarUsuarioClick(Sender: TObject);
 begin
-  begin
   dmConexao.qryUsuario.Refresh;
 end;
-end;
 
-//Cancelar operação
 procedure TfrmUsuario.btnCancelarUsuarioClick(Sender: TObject);
 begin
- // Lógica para cancelar a operação atual
-  btnNovoUsuario.Enabled := True;  // Ativa o botão Novo
-  btnEditUsuario.Enabled := True; // Ativa o botão Editar
-  btnExcluirUsuario.Enabled := True; // Ativa o botão Excluir
-  btnSalvarUsuario.Enabled := False; // Desativa o botão Salvar
-  btnCancelarUsuario.Enabled := False; // Desativa o botão Cancelar
-  //mesagem de confirmação
+  // Mesagem de confirmação
   if dmConexao.dsUsuario.DataSet.State in [dsEdit, dsInsert] then
-  if MessageDlg('Tem certeza de que deseja cancelar a operação?',
-  mtConfirmation, [mbYes, mbNo], 0) = mrYes then //tentar colocar em português.
-//está ficando como yes ou no.
-  begin
-    dmConexao.dsUsuario.DataSet.Cancel;
-    edtNomeUsuario.Clear;
-    edtUserUsuario.Clear;
-    //edtStatusUsuario.Clear; //edtStatusUsuario.ItemIndex := -1
-    edtSenhaUsuario.Clear;
-  end;
+    if MessageDlg('Tem certeza de que deseja cancelar a operação?',
+      mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+    begin
+      dmConexao.dsUsuario.DataSet.Cancel;
+      btnLimparUsuarioClick(Sender);
+    end;
+  // Ajustar botões
+  btnNovoUsuario.Enabled := True;
+  btnEditUsuario.Enabled := True;
+  btnExcluirUsuario.Enabled := True;
+  btnSalvarUsuario.Enabled := False;
+  btnCancelarUsuario.Enabled := False;
 end;
 
-//editar registro
 procedure TfrmUsuario.btnEditUsuarioClick(Sender: TObject);
 begin
- // desativar botões
-  btnNovoUsuario.Enabled := False;  // Desativa o botão Novo
-  btnEditUsuario.Enabled := False; // Desativa o botão Editar
-  btnExcluirUsuario.Enabled := False; // Desativa o botão Excluir
-  btnSalvarUsuario.Enabled := True; // Ativa o botão Salvar
-  btnCancelarUsuario.Enabled := True; // Ativa o botão Cancelar
-  begin
   if not (dmConexao.dsUsuario.DataSet.State in [dsEdit, dsInsert]) then
-  begin
     dmConexao.dsUsuario.DataSet.Edit;
-    edtNomeUsuario.SetFocus;
-    edtUserUsuario.SetFocus;
-    edtStatusUsuario.SetFocus;
-    edtSenhaUsuario.SetFocus;
-  end;
+
+  // Ajustar botões
+  btnNovoUsuario.Enabled := False;
+  btnEditUsuario.Enabled := False;
+  btnExcluirUsuario.Enabled := False;
+  btnSalvarUsuario.Enabled := True;
+  btnCancelarUsuario.Enabled := True;
 end;
+//exluir usuario
+procedure TfrmUsuario.btnExcluirUsuarioClick(Sender: TObject);
+begin
+   // Ajustar botões
+  btnNovoUsuario.Enabled := True;
+  btnEditUsuario.Enabled := True;
+  btnExcluirUsuario.Enabled := True;
+  btnSalvarUsuario.Enabled := False;
+  btnCancelarUsuario.Enabled := False;
+
+  // Verifica se há itens associados à categoria antes de excluir
+  with dmConexao.qryConsulta do
+  begin
+    Close;
+    SQL.Clear;
+    SQL.Add('SELECT COUNT(*) FROM item WHERE id_usuario = :id_usuario');
+    ParamByName('id_usuario').AsInteger := dmConexao.dsUsuario.DataSet.FieldByName('id_usuario').AsInteger;
+    Open;
+
+    // Se a categoria está associada a algum item, impede a exclusão
+    if Fields[0].AsInteger > 0 then
+    begin
+      ShowMessage('Não é possível excluir o usuário "' + edtNomeUsuario.Text + '" porque está associado a um ou mais itens. você pode tentar inativar o perfil');
+      Exit;
+    end;
+  end;
+
+  if StrToInt(edtIdUsuario.Text) = dmConexao.UsuarioLogadoID then
+  begin
+    ShowMessage('Não é possível excluir o usuário "' + edtIdUsuario.Text + '" porque ele está logado no sistema')
+  end;
+
+  if (StrToInt(edtIdUsuario.Text) = dmConexao.UsuarioLogadoID) and
+   (edtStatusUsuario.ItemIndex = 1) then  // Verifica se o status é 'Inativo' (índice 1)
+begin
+  ShowMessage('Não é possível inativar o usuário "' + edtIdUsuario.Text + '" porque ele está logado no sistema');
+  exit
+end
+else if StrToInt(edtIdUsuario.Text) = dmConexao.UsuarioLogadoID then
+begin
+  ShowMessage('Não é possível excluir o usuário "' + edtIdUsuario.Text + '" porque ele está logado no sistema');
 end;
 
-//Exluir registro (delete)
-procedure TfrmUsuario.btnExcluirUsuarioClick(Sender: TObject);
-  begin
-    // Lógica para excluir item
-  btnNovoUsuario.Enabled := True;  // Ativa o botão Novo
-  btnEditUsuario.Enabled := True; // Ativa o botão Editar
-  btnExcluirUsuario.Enabled := False; // Desativa o botão Excluir
-  btnSalvarUsuario.Enabled := False; // Desativa o botão Salvar
-  btnCancelarUsuario.Enabled := False; // Desativa o botão Cancelar
-  begin
-  if MessageDlg('Confirma a exclusão do registro? Essa ação não poderá ser desfeita',
-  mtConfirmation, [mbYes, mbNo], 0) = mrYes then
+  // Se não houver itens associados, solicita confirmação antes de excluir
+  if MessageDlg('Confirma a exclusão do registro "' + edtNomeUsuario.Text + '"? Essa ação não poderá ser desfeita',
+    mtConfirmation, [mbYes, mbNo], 0) = mrYes then
   begin
     dmConexao.dsUsuario.DataSet.Delete;
+    ShowMessage('Usuário excluído com sucesso.');
   end;
 end;
-end;
-//limpar campos
+
 procedure TfrmUsuario.btnLimparUsuarioClick(Sender: TObject);
 begin
-     edtIdUsuario.Clear;
-    edtNomeUsuario.Clear;
-    edtUserUsuario.Clear;
-    //edtStatusUsuario.ItemIndex := -1
-    edtSenhaUsuario.Clear;
+  edtIdUsuario.Clear;
+  edtNomeUsuario.Clear;
+  edtUserUsuario.Clear;
+  edtStatusUsuario.ItemIndex := -1;
+  edtSenhaUsuario.Clear;
 end;
-//inserir novo registro (insert)
+
 procedure TfrmUsuario.btnNovoUsuarioClick(Sender: TObject);
 begin
-// desativar botões
-  btnNovoUsuario.Enabled := True;  // Desativa o botão Novo
-  btnEditUsuario.Enabled := False; // Desativa o botão Editar
-  btnExcluirUsuario.Enabled := False; // Desativa o botão Excluir
-  btnSalvarUsuario.Enabled := True; // Ativa o botão Salvar
-  btnCancelarUsuario.Enabled := True; // Ativa o botão Cancelar
-  //inserir itens
   dmConexao.dsUsuario.DataSet.Insert;
+
+  // Ajustar botões
+  btnNovoUsuario.Enabled := False;
+  btnEditUsuario.Enabled := False;
+  btnExcluirUsuario.Enabled := False;
+  btnSalvarUsuario.Enabled := True;
+  btnCancelarUsuario.Enabled := True;
+
+  // Foco no primeiro campo
   edtNomeUsuario.SetFocus;
-  edtUserUsuario.SetFocus;
-  edtStatusUsuario.SetFocus;
-  edtSenhaUsuario.SetFocus;
 end;
-//pesquisa (select)
+
 procedure TfrmUsuario.btnPesquisarUsuarioClick(Sender: TObject);
 begin
   dmConexao.qryUsuario.Close;
+  dmConexao.qryUsuario.SQL.Clear;
+  dmConexao.qryUsuario.SQL.Add('select * from usuario where 1 = 1');
 
-  dmConexao.qryUsuario.sql.Clear;
-  dmConexao.qryUsuario.sql.add('select * from usuario where 1 = 1');
-
-  if trim(edtPesqNomeUsuario1.Text) <> '' then
+  if Trim(edtPesqNomeUsuario1.Text) <> '' then
   begin
-    dmConexao.qryUsuario.sql.add('and nm_usuario Ilike :nm_usuario');
-    dmConexao.qryUsuario.ParamByName ('nm_usuario').AsString:= '%' + edtPesqNomeUsuario1.Text + '%';
+    dmConexao.qryUsuario.SQL.Add('and nm_usuario ILIKE :nm_usuario');
+    dmConexao.qryUsuario.ParamByName('nm_usuario').AsString := '%' + edtPesqNomeUsuario1.Text + '%';
   end;
 
-  if trim(cbPesqStatus1.Text) <> '' then
+  if Trim(cbPesqStatus1.Text) <> '' then
   begin
-    dmConexao.qryUsuario.sql.add('and ds_status like :ds_status');
-    dmConexao.qryUsuario.ParamByName('ds_status').asstring := '%' + cbPesqStatus1.Text + '%';
+    dmConexao.qryUsuario.SQL.Add('and ds_status LIKE :ds_status');
+    dmConexao.qryUsuario.ParamByName('ds_status').AsString := '%' + cbPesqStatus1.Text + '%';
   end;
 
-  if trim(edtPesqUsername1.Text) <> '' then
+  if Trim(edtPesqUsername1.Text) <> '' then
   begin
-    dmConexao.qryUsuario.sql.add('and username like :username');
-    dmConexao.qryUsuario.ParamByName('username').asstring := '%' + edtPesqUsername1.Text + '%';
+    dmConexao.qryUsuario.SQL.Add('and username LIKE :username');
+    dmConexao.qryUsuario.ParamByName('username').AsString := '%' + edtPesqUsername1.Text + '%';
   end;
 
-   dmConexao.qryUsuario.Open;
+  dmConexao.qryUsuario.Open;
 end;
- //Salvar registros
+
 procedure TfrmUsuario.btnSalvarUsuarioClick(Sender: TObject);
 begin
-// Lógica para salvar item
-  btnNovoUsuario.Enabled := True;  // Ativa o botão Novo
-  btnEditUsuario.Enabled := True; // Ativa o botão Editar
-  btnExcluirUsuario.Enabled := True; // Ativa o botão Excluir
-  btnSalvarUsuario.Enabled := False; // Desativa o botão Salvar
-  btnCancelarUsuario.Enabled := False; // Desativa o botão Cancelar
-  // Verifica se todos os campos obrigatórios estão preenchidos
   if not CamposPreenchidos then
     Exit;
 
-  // Verifica se o dataset está em modo de edição ou inserção
   if dmConexao.dsUsuario.DataSet.State in [dsEdit, dsInsert] then
   begin
-    // Se estiver em modo de edição, solicita confirmação antes de salvar
     if dmConexao.dsUsuario.DataSet.State = dsEdit then
     begin
       if MessageDlg('Tem certeza que deseja salvar as alterações?', mtConfirmation,
         [mbYes, mbNo], 0) = mrYes then
       begin
         dmConexao.dsUsuario.DataSet.Post;
+      end
+      else
+      begin
+        dmConexao.dsUsuario.DataSet.Cancel;
       end;
     end
-    // Se estiver em modo de inserção, salva diretamente sem pedir confirmação
-    else if dmConexao.dsUsuario.DataSet.State = dsInsert then
+    else
     begin
       dmConexao.dsUsuario.DataSet.Post;
     end;
   end;
+
+  // Ajustar botões
+  btnNovoUsuario.Enabled := True;
+  btnEditUsuario.Enabled := True;
+  btnExcluirUsuario.Enabled := True;
+  btnSalvarUsuario.Enabled := False;
+  btnCancelarUsuario.Enabled := False;
 end;
 
 procedure TfrmUsuario.FormCreate(Sender: TObject);
 begin
-
+  dmConexao.qryUsuario.Close;
+  dmConexao.qryUsuario.SQL.Clear;
+  dmConexao.qryUsuario.SQL.Add('select * from usuario');
 end;
 
 procedure TfrmUsuario.FormShow(Sender: TObject);
 begin
   pgcAcoesUsuario.ActivePage := tabConsultaUsuario;
+  if not dmConexao.qryUsuario.Active then
+    dmConexao.qryUsuario.Open
+  else
+    dmConexao.qryUsuario.Refresh;
 end;
 
 function TfrmUsuario.CamposPreenchidos: Boolean;
@@ -292,13 +314,13 @@ begin
   end;
 
   // Verificação do comprimento da senha
-  if Length(edtSenhaUsuario.Text) < 8 then
-  begin
-    ShowMessage('A senha deve ter no mínimo 8 caracteres. Por favor, insira uma senha válida.');
-    edtSenhaUsuario.SetFocus;
-    Result := False;
-    Exit;
-  end;
+  //if Length(edtSenhaUsuario.Text) < 8 then
+  //begin
+  //  ShowMessage('A senha deve ter no mínimo 8 caracteres. Por favor, insira uma senha válida.');
+  //  edtSenhaUsuario.SetFocus;
+  //  Result := False;
+  //  Exit;
+  //end;
 end;
 
 procedure TfrmUsuario.MostrarMensagemCampoEmBranco(Campo: TWinControl; const NomeCampo: String);
