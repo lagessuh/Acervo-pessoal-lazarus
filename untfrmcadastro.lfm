@@ -1,11 +1,11 @@
 object frmCadastro: TfrmCadastro
-  Left = 272
+  Left = 115
   Height = 851
-  Top = 57
+  Top = 59
   Width = 1602
   Caption = 'Cadastro'
-  ClientHeight = 851
-  ClientWidth = 1602
+  ClientHeight = 0
+  ClientWidth = 0
   Color = clInactiveCaption
   DefaultMonitor = dmMainForm
   DesignTimePPI = 120

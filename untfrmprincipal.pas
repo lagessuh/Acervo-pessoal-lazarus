@@ -10,8 +10,6 @@ uses
   untdmConexao, untfrmCadastro, untfrmPesquisa, untfrmusuario,
   untfrmlistadesejos;
 
-////untfrmlogin
-
 
 type
 

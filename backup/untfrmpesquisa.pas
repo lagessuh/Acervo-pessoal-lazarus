@@ -63,12 +63,12 @@ begin
     dmConexao.qryRelatorio.SQL.Add('AND "Autor" LIKE :autor');
     dmConexao.qryRelatorio.ParamByName('autor').AsString := '%' + edtPesqAutor.Text + '%';
   end;
-
-  if Trim(edtPesqUsuario.Text) <> '' then
-  begin
-    dmConexao.qryRelatorio.SQL.Add('AND "Nome do Usuário" LIKE :usuario');
-    dmConexao.qryRelatorio.ParamByName('usuario').AsString := '%' + edtPesqUsuario.Text + '%';
-  end;
+//
+//  if Trim(edtPesqUsuario.Text) <> '' then
+//  begin
+//    dmConexao.qryRelatorio.SQL.Add('AND "Nome do Usuário" LIKE :usuario');
+//    dmConexao.qryRelatorio.ParamByName('usuario').AsString := '%' + edtPesqUsuario.Text + '%';
+//  end;
 
   if Trim(edtPesqCategoria.Text) <> '' then
   begin

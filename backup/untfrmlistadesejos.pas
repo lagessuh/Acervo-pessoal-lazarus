@@ -147,7 +147,7 @@ begin
   dmConexao.qryLista.Close;
 
   dmConexao.qryLista.sql.Clear;
-  dmConexao.qryLista.sql.add('select * from lista where 1 = 1');
+  dmConexao.qryLista.sql.add('select * from lista_desejo where 1 = 1');
 
   if trim(edtPesqNomeLista.Text) <> '' then
   begin

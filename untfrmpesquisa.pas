@@ -54,13 +54,13 @@ begin
   // Filtros adicionais baseados nas entradas do usuário
   if Trim(edtPesqItem.Text) <> '' then
   begin
-    dmConexao.qryRelatorio.SQL.Add('AND "Item" LIKE :item');
+    dmConexao.qryRelatorio.SQL.Add('AND "Item" ILIKE :item');
     dmConexao.qryRelatorio.ParamByName('item').AsString := '%' + edtPesqItem.Text + '%';
   end;
 
   if Trim(edtPesqAutor.Text) <> '' then
   begin
-    dmConexao.qryRelatorio.SQL.Add('AND "Autor" LIKE :autor');
+    dmConexao.qryRelatorio.SQL.Add('AND "Autor" ILIKE :autor');
     dmConexao.qryRelatorio.ParamByName('autor').AsString := '%' + edtPesqAutor.Text + '%';
   end;
 //

@@ -151,13 +151,13 @@ begin
 
   if trim(edtPesqNomeLista.Text) <> '' then
   begin
-    dmConexao.qryLista.sql.add('and nm_desejo like :nm_desejo');
+    dmConexao.qryLista.sql.add('and nm_desejo Ilike :nm_desejo');
     dmConexao.qryLista.ParamByName ('nm_desejo').AsString:= '%' + edtPesqNomeLista.Text + '%';
   end;
 
   if trim(edtPesqAutorLista.Text) <> '' then
   begin
-    dmConexao.qryLista.sql.add('and autor like :autor');
+    dmConexao.qryLista.sql.add('and autor Ilike :autor');
     dmConexao.qryLista.ParamByName('autor').asstring := '%' + edtPesqAutorLista.Text + '%';
   end;
 

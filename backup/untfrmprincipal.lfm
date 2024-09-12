@@ -1,7 +1,7 @@
 object frmPrincipal: TfrmPrincipal
-  Left = 889
+  Left = 1004
   Height = 432
-  Top = 227
+  Top = 168
   Width = 796
   Caption = '.: Sistema de Gestão de Acervo Pessoal .: Versão 001'
   ClientHeight = 432

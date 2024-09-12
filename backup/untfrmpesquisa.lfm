@@ -4,8 +4,8 @@ object frmPesquisa: TfrmPesquisa
   Top = 193
   Width = 1561
   Caption = ' ..::: Visualização :::..'
-  ClientHeight = 748
-  ClientWidth = 1561
+  ClientHeight = 0
+  ClientWidth = 0
   Color = clInactiveCaption
   DesignTimePPI = 120
   OnCreate = FormCreate

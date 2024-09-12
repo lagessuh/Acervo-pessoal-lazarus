@@ -1,7 +1,7 @@
 object frmCadastro: TfrmCadastro
-  Left = 272
+  Left = 115
   Height = 851
-  Top = 57
+  Top = 59
   Width = 1602
   Caption = 'Cadastro'
   ClientHeight = 0
@@ -4066,28 +4066,28 @@ object frmCadastro: TfrmCadastro
           TabVisible = False
           object GroupBox15: TPanel
             Left = 0
-            Height = 400
+            Height = 424
             Top = 0
             Width = 1384
-            ClientHeight = 400
+            ClientHeight = 424
             ClientWidth = 1384
             Color = clInactiveCaption
             ParentBackground = False
             ParentColor = False
             TabOrder = 0
             object GroupBox6: TGroupBox
-              Left = 16
-              Height = 200
-              Top = 24
-              Width = 712
-              ClientHeight = 175
-              ClientWidth = 708
+              Left = 72
+              Height = 232
+              Top = 40
+              Width = 824
+              ClientHeight = 207
+              ClientWidth = 820
               ParentBackground = False
               TabOrder = 0
               object edtIdLocalCad: TDBEdit
-                Left = 16
+                Left = 40
                 Height = 28
-                Top = 64
+                Top = 88
                 Width = 38
                 DataField = 'id_local_aquisicao'
                 DataSource = dmConexao.dsLocal
@@ -4098,9 +4098,9 @@ object frmCadastro: TfrmCadastro
                 TabOrder = 0
               end
               object edtLocalCad: TDBEdit
-                Left = 80
+                Left = 104
                 Height = 28
-                Top = 64
+                Top = 88
                 Width = 400
                 DataField = 'ds_local_aquisicao'
                 DataSource = dmConexao.dsLocal
@@ -4118,9 +4118,9 @@ object frmCadastro: TfrmCadastro
                 ParentFont = False
               end
               object Label48: TLabel
-                Left = 16
+                Left = 40
                 Height = 28
-                Top = 32
+                Top = 56
                 Width = 23
                 Caption = 'ID:'
                 Font.Height = -20
@@ -4128,9 +4128,9 @@ object frmCadastro: TfrmCadastro
                 ParentFont = False
               end
               object Label49: TLabel
-                Left = 80
+                Left = 104
                 Height = 28
-                Top = 32
+                Top = 56
                 Width = 166
                 Caption = 'Local de Aquisição:'
                 Font.Height = -20
@@ -4141,7 +4141,7 @@ object frmCadastro: TfrmCadastro
             object btnLimparLocal: TBitBtn
               Left = 1264
               Height = 46
-              Top = 240
+              Top = 280
               Width = 110
               Caption = 'Limpar'
               Glyph.Data = {
@@ -4284,7 +4284,7 @@ object frmCadastro: TfrmCadastro
             object btnAtualizarLocal: TBitBtn
               Left = 1152
               Height = 46
-              Top = 240
+              Top = 280
               Width = 110
               Caption = 'Atualizar'
               Glyph.Data = {
@@ -4427,7 +4427,7 @@ object frmCadastro: TfrmCadastro
             object btnCancelarLocal: TBitBtn
               Left = 1264
               Height = 46
-              Top = 192
+              Top = 232
               Width = 110
               Caption = 'Cancelar'
               Glyph.Data = {
@@ -4570,7 +4570,7 @@ object frmCadastro: TfrmCadastro
             object btnExcluirLocal: TBitBtn
               Left = 1264
               Height = 46
-              Top = 144
+              Top = 184
               Width = 110
               Caption = 'Excluir'
               Glyph.Data = {
@@ -4713,7 +4713,7 @@ object frmCadastro: TfrmCadastro
             object btnSalvarLocal: TBitBtn
               Left = 1264
               Height = 46
-              Top = 96
+              Top = 136
               Width = 110
               Caption = 'Salvar'
               Glyph.Data = {
@@ -4856,7 +4856,7 @@ object frmCadastro: TfrmCadastro
             object btnEditLocal: TBitBtn
               Left = 1264
               Height = 46
-              Top = 48
+              Top = 88
               Width = 110
               Caption = 'Editar'
               Glyph.Data = {
@@ -4999,7 +4999,7 @@ object frmCadastro: TfrmCadastro
             object btnNovoLocal: TBitBtn
               Left = 1264
               Height = 46
-              Top = 0
+              Top = 40
               Width = 110
               Caption = 'Novo'
               Glyph.Data = {
@@ -5142,8 +5142,8 @@ object frmCadastro: TfrmCadastro
           end
           object DBGrid22: TDBGrid
             Left = 0
-            Height = 386
-            Top = 281
+            Height = 339
+            Top = 328
             Width = 1376
             Align = alBottom
             AlternateColor = clGradientInactiveCaption
@@ -5159,7 +5159,7 @@ object frmCadastro: TfrmCadastro
               end            
               item
                 Title.Caption = 'Local de Aquisição'
-                Width = 1181
+                Width = 1285
                 FieldName = 'ds_local_aquisicao'
               end>
             DataSource = dmConexao.dsLocal

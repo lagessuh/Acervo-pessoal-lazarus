@@ -667,7 +667,7 @@ object frmLogin: TfrmLogin
     }
     TabOrder = 4
   end
-  object SpeedButton1: TSpeedButton
+  object btnSair: TSpeedButton
     Left = 360
     Height = 32
     Top = 24
@@ -989,7 +989,7 @@ object frmLogin: TfrmLogin
       0000000000000000000000000000000000000000000000000000000000000000
       00000000000000000000
     }
-    OnClick = SpeedButton1Click
+    OnClick = btnSairClick
   end
   object ZConnection1: TZConnection
     ControlsCodePage = cCP_UTF8

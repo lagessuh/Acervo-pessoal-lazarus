@@ -19,8 +19,7 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="6"/>
-        <TopLine Value="118"/>
-        <CursorPos X="17" Y="127"/>
+        <CursorPos X="45" Y="12"/>
         <UsageCount Value="203"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -33,7 +32,7 @@
         <ResourceBaseClass Value="DataModule"/>
         <UnitName Value="untdmConexao"/>
         <TopLine Value="40"/>
-        <CursorPos X="22" Y="55"/>
+        <CursorPos X="18" Y="52"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -45,7 +44,6 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="5"/>
-        <TopLine Value="146"/>
         <CursorPos X="22" Y="99"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -58,8 +56,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="85"/>
-        <CursorPos X="43" Y="96"/>
+        <TopLine Value="93"/>
+        <CursorPos X="39" Y="38"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -72,8 +70,8 @@
         <ResourceBaseClass Value="Form"/>
         <IsVisibleTab Value="True"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="839"/>
-        <CursorPos X="114" Y="850"/>
+        <TopLine Value="584"/>
+        <CursorPos X="10" Y="591"/>
         <ComponentState Value="1"/>
         <UsageCount Value="200"/>
         <Loaded Value="True"/>
@@ -97,8 +95,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="untfrmPesquisa"/>
         <EditorIndex Value="4"/>
-        <TopLine Value="40"/>
-        <CursorPos X="42" Y="51"/>
+        <TopLine Value="65"/>
+        <CursorPos X="53" Y="75"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -110,9 +108,8 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <EditorIndex Value="3"/>
-        <TopLine Value="191"/>
-        <CursorPos X="52" Y="157"/>
-        <ComponentState Value="1"/>
+        <TopLine Value="139"/>
+        <CursorPos X="50" Y="145"/>
         <UsageCount Value="201"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
@@ -177,7 +174,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="688"/>
         <CursorPos X="145" Y="701"/>
-        <UsageCount Value="11"/>
+        <UsageCount Value="10"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
@@ -205,7 +202,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="3098"/>
         <CursorPos Y="3109"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
       <Unit>
@@ -229,7 +226,7 @@
         <EditorIndex Value="-1"/>
         <TopLine Value="1868"/>
         <CursorPos Y="1879"/>
-        <UsageCount Value="10"/>
+        <UsageCount Value="9"/>
       </Unit>
       <Unit>
         <Filename Value="untfrmpesquisa.lfm"/>
@@ -305,11 +302,7 @@
         <DefaultSyntaxHighlighter Value="Delphi"/>
       </Unit>
     </Units>
-    <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="untfrmusuario.pas"/>
-        <Caret Line="323" Column="17" TopLine="305"/>
-      </Position>
+    <JumpHistory HistoryIndex="27">
       <Position>
         <Filename Value="untfrmusuario.pas"/>
         <Caret Line="322" Column="17" TopLine="304"/>
@@ -380,10 +373,6 @@
       </Position>
       <Position>
         <Filename Value="untfrmlistadesejos.pas"/>
-        <Caret Line="151" Column="86" TopLine="263"/>
-      </Position>
-      <Position>
-        <Filename Value="untfrmlistadesejos.pas"/>
         <Caret Line="150" Column="57" TopLine="140"/>
       </Position>
       <Position>
@@ -408,10 +397,6 @@
       </Position>
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
-        <Caret Line="739" Column="5" TopLine="747"/>
-      </Position>
-      <Position>
-        <Filename Value="untfrmcadastro.pas"/>
         <Caret Line="797" Column="63" TopLine="774"/>
       </Position>
       <Position>
@@ -425,6 +410,10 @@
       <Position>
         <Filename Value="untfrmcadastro.pas"/>
         <Caret Line="742" Column="123" TopLine="738"/>
+      </Position>
+      <Position>
+        <Filename Value="untfrmpesquisa.pas"/>
+        <Caret Line="7" Column="55"/>
       </Position>
     </JumpHistory>
     <RunParams>
